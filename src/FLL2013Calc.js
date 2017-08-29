@@ -23,7 +23,7 @@ function AComboBox(props){
 function ARadioGroup(props){
   const score = props.score;
   return(
-    <div class="radio-toolbar">
+    <div className="radio-toolbar">
     {score.map((aScore) =>
       <label htmlFor='{aScore.name}'>{aScore.name}
           <input type="radio" value="{aScore.value}" ></input>
@@ -34,22 +34,31 @@ function ARadioGroup(props){
 }
 
 function ChallengeItem(props) {
+  const challenge = props.challenge;
+  const onChange = props.handleChange;
+  const value = props.value;
   return(
-    <div class="row">
-      <div class="col-xs-6 col-lg-4">
-        <h3><img className="image" src={"icons/" + props.challenge.picture}  style={{ width: '80px', height: '80px' }} />
-        {props.challenge.name}</h3>
+    <div className="row">
+      <div className="col-xs-6 col-lg-4">
+        <h3><img className="image" src={"icons/" + challenge.picture} alt={challenge.name}  style={{ width: '80px', height: '80px' }} />
+        {challenge.name} - Max {challenge.max} pts</h3>
 
         {(() => {
-          switch (props.challenge.controlType) {
-            case "checkbox":  return <ACheckbox score={props.challenge.score} />;
-            case "radio":     return <ARadioGroup score={props.challenge.score}/>;
-            case "combo":     return <AComboBox score={props.challenge.score}/>;
+          switch (challenge.controlType) {
+            case "checkbox":  return <ACheckbox score={challenge.score}
+                                                onChange ={onChange}
+                                                value={value} />;
+            case "radio":     return <ARadioGroup score={challenge.score}
+                                                onChange ={onChange}
+                                                value={value} />;
+            case "combo":     return <AComboBox score={challenge.score}
+                                                onChange ={onChange}
+                                                value={value} />;
             default:  return '';
           }
         })()}
-        <p>Goal: {props.challenge.hint}</p>
-        <p>{props.challenge.description}</p>
+        <p>Goal: {challenge.hint}</p>
+        <p>{challenge.description}</p>
       </div>
     </div>
   )
@@ -57,11 +66,16 @@ function ChallengeItem(props) {
 
 function ChallengeList(props) {
   const challenges = props.challenges;
+  const onChange = props.handleChange;
+  const value = props.value;
+
   return (
     <div>
       {challenges.map((challenge) =>
         <ChallengeItem key={challenge.guid.toString()}
-                  challenge={challenge} />
+                  challenge={challenge}
+                  onChange={onChange}
+                  value={value} />
       )}
     </div>
   );
@@ -70,16 +84,33 @@ function ChallengeList(props) {
 class FLL2013ChallengeCalc extends Component {
   constructor(props) {
     super(props);
-    this.state = {stateChallenges : challenges};
+    this.state = {
+      stateChallenges : challenges,
+      totalScore: 0,
+      value: 0
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    console.log(event);
+    this.setState({inputValue: event.target.value});
+  }
+
+  handleSubmit(event) {
+    console.log(event);
+    event.preventDefault();
+    this.setState({inputValue: event.target.value});
   }
 
   render() {
     return (
-      <div class="container">
-        <div class="row row-offcanvas row-offcanvas-right">
-          <div class="col-xs-12 col-sm-9">
+      <div className = "container">
+        <div className = "row row-offcanvas row-offcanvas-right">
+          <div className = "col-xs-12 col-sm-9">
             <h2>Contact List</h2>
-            <ChallengeList challenges={this.state.stateChallenges} />
+            <ChallengeList onChange={this.handleChange} value={this.state.value} challenges={this.state.stateChallenges} />
           </div>
         </div>
       </div>
