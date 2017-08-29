@@ -5,6 +5,7 @@
 		"picture": "SupplyTruck.jpg",
 		"controlType": "checkbox",
 		"score": [{"fail": "0"}, {"success": "20"}],
+		"max": "20",
 		"hint": "The supply truck is touching the mat in the yellow region.",
 		"description": "The supply truck is touching the mat in the yellow region."
 	},
@@ -14,6 +15,7 @@
 		"picture": "Evacuation.jpg",
 		"controlType": "checkbox",
 		"score": [{"fail": "0"}, {"success": "30"}],
+		"max": "30",
 		"hint": "The sign must be up.",
 		"description": "The sign is obviously up (it does not need to be vertical), held in place only by the slider's friction with the mat. No part of the sign model is being touched by the robot, or any strategic object."
 	},
@@ -23,6 +25,7 @@
 		"picture": "TreeBranch.jpg",
 		"controlType": "checkbox",
 		"score": [{"fail": "0"}, {"success": "30"}],
+		"max": "30",
 		"hint": "Tree branch is off the electric cables.",
 		"description": "The east tree branch is closer to the mat than the electric cables are. The tree and the electric cable models are upright, touching the mat."
 	},
@@ -32,6 +35,7 @@
 		"picture": "Tsunami.jpg",
 		"controlType": "checkbox",
 		"score": [{"fail": "0"}, {"success": "20"}],
+		"max": "20",
 		"hint": "All three waves are touching the mat.",
 		"description": "All three waves are touching the mat."
 	},
@@ -41,6 +45,7 @@
 		"picture": "Ambulance.jpg",
 		"controlType": "checkbox",
 		"score": [{"fail": "0"}, {"success": "25"}],
+		"max": "25",
 		"hint": "The ambulance is in the yellow region.",
 		"description": "The ambulance is in the yellow region. All the ambulance's wheels are touching the mat."
 	},
@@ -50,6 +55,7 @@
 		"picture": "Placeholder.jpg",
 		"controlType": "checkbox",
 		"score": [{"fail": "0"}, {"success": "30"}],
+		"max": "30",
 		"hint": "Nothing except wave water and/or the plane is touching the mat",
 		"description": "Nothing except wave water and/or the plane is touching the mat anywhere on the runway."
 	},
@@ -59,6 +65,7 @@
 		"picture": "ConstRelocation.jpg",
 		"controlType": "checkbox",
 		"score": [{"fail": "0"}, {"success": "20"}],
+		"max": "20",
 		"hint": "There are no gray building units anywhere in the LT green region.",
 		"description": "There are no gray building units anywhere in the LT green region."
 	},
@@ -68,6 +75,7 @@
 		"picture": "HouseLift.jpg",
 		"controlType": "checkbox",
 		"score": [{"fail": "0"}, {"success": "25"}],
+		"max": "25",
 		"hint": "The house is locked in its high position.",
 		"description": "The house is locked in its high position."
 	},
@@ -77,6 +85,7 @@
 		"picture": "Placeholder.jpg",
 		"controlType": "checkbox",
 		"score": [{"fail": "0"}, {"success": "25"}],
+		"max": "25",
 		"hint": "The robot is in the red region at the end of the match",
 		"description": ""
 	},
@@ -86,6 +95,7 @@
 		"picture": "BaseIsolation.jpg",
 		"controlType": "checkbox",
 		"score": [{"fail": "0"}, {"success": "30"}],
+		"max": "30",
 		"hint": "The west tan building is undamaged.  The east tan building is obviously damaged.",
 		"description": "The west tan building is undamaged: Four segments, right angles to mat, and 'perfect' alignment. The east tan building is obviously damaged. *Nothing is touching either building except the rolling frame. *Nothing ever touched either building except the rolling frame. The damage was caused purely by movement of the rolling frame *Exception: Fallen segments from the east building may touch the mat and/or the west building by chance."
 	},
@@ -99,6 +109,7 @@
 			{"name":"yellow", "value": "20"},
 			{"name":"blue", "value": "30"}
 		],
+		"max": "30",
 		"hint": "The supply truck is touching the mat in the yellow region.",
 		"description": "The supply truck is touching the mat in the yellow region."
 	},
@@ -115,6 +126,7 @@
 				{"name":"four", "value": "20"},
 				{"name":"five", "value": "25"}
 			],
+		"max": "25",
 		"hint": "A multi-story building is in the pink region.",
 		"description": "A multi-story building is in the pink region. The building is made of building segments only. The finished building does not rely on strategic objects or the robot in any way. (Perfect nesting and alignment are not needed for this building.) (If there are multiple buildings, only the highest score-worthy one scores.)"
 	},
@@ -130,6 +142,7 @@
 			{"name":"purple", "value": "23"},
 			{"name":"red", "value": "31"}
 		],
+		"max": "31",
 		"hint": "The robot has crossed completely over the west line of the noted region",
 		"description": "The robot has crossed completely over the west line of the noted region, from the west only. (This mission involves exceptions to the Rules...) (This mission may be repeated as desired, in hopes of improved results.) (Points given are permanent unless a better result replaces them later in the same match.) (Points are given only for the best result achieved.) (The robot may be rescued from this mission as needed, successful or not, without penalty.) (Points given are permanent even if the robot later leaves or is rescued from the region.)"
 	},
@@ -143,6 +156,7 @@
 			{"name":"one", "value": "33"},
 			{"name":"two", "value": "66"}
 		],
+		"max": "66",
 		"hint": "At least two people are together in any colored region.",
 		"description": "At least two people are together in any colored region. (Points are awarded for 2, or 3, but not both.)"
 	},
@@ -162,6 +176,7 @@
 				{"name":"seven", "value": "14"},
 				{"name":"eight", "value": "16"}
 			],
+		"max": "16",
 		"hint": "At least one person is in a region colored red or yellow.",
 		"description": "At least one person is in a region colored red or yellow. (Points for people in red and people in yellow are combined.)"
 	},
@@ -181,6 +196,7 @@
 				{"name":"seven", "value": "14"},
 				{"name":"eight", "value": "16"}
 			],
+		"max": "16",
 		"hint": "The pointer has reached colors as a result of red lever motion only",
 		"description": "The pointer has reached colors as a result of red lever motion only (moving left in the picture). (Points for this mission are awarded to both teams, no matter who operates the model.) (No points are awarded if this model has not been operated.)"
 	},
@@ -201,7 +217,7 @@
 				{"name":"seven", "value": "14"},
 				{"name":"eight", "value": "16"}
 			],
-
+		"max": "16",
 		"hint": "At least one non-water item is in a region colored red or yellow.",
 		"description": "At least one non-water item is in a region colored red or yellow. (12 Possible: 2-way radio, battery, generator, 2 fuel, grain, bread, medicine, boom box, flashlight, dirt bike, helmet)"
 	},
@@ -211,6 +227,7 @@
 		"picture": "Pets.jpg",
 		"controlType": "checkbox",
 		"score": [{"none": "0"},{"cat": "15"},{"dog": "15"},{"both": "30"}],
+		"max": "30",
 		"hint": "At least one pet is together with at least one person in any colored region.",
 		"description": "At least one pet is together with at least one person in any colored region."
 	},
@@ -225,6 +242,7 @@
 				{"name":"two", "value": "30"},
 				{"name":"three", "value": "45"}
 			],
+		"max": "45",
 		"hint": "At least one person is together with (bottled) water in the same region.",
 		"description": "At least one person is together with (bottled) water in the same region."
 	},
@@ -239,6 +257,7 @@
 				{"name":"two", "value": "-13"},
 				{"name":"three", "value": "-20"}
 			],
+		"max": "0",
 		"hint": "See the rules for details on penalties.",
 		"description": "If a penalty is earned (as described here and in the Rules), the ref places a roof debris model on the west-most possible roof mark which is completely empty. Placement is expected to be closely aligned on the mark, but may not be perfect. For penalties after the 4th, the west-most debris is placed as far as possible into the northeast corner of the LT blue region. The robot may not remove debris from the LT blue region."
 	}
