@@ -5,14 +5,14 @@ import challenges from './FLL2013Challenge.json';
 
 function ACheckbox(props){
   return(
-    <input type="checkbox" onChange={props.handleChange}/>
+    <input type="checkbox" name={props.name} id={props.id} onChange={props.handleChange}/>
   )
 }
 
 function AComboBox(props){
   const score = props.score;
   return(
-    <select onChange={props.handleChange}>
+    <select name={props.name} id={props.id} onChange={props.handleChange}>
       {score.map((aScore) =>
         <option value={aScore.value} >{aScore.name}</option>
       )}
@@ -27,8 +27,11 @@ function ARadioGroup(props){
     {score.map((aScore) =>
       <label htmlFor={aScore.name}>{aScore.name}
           <input type="radio"
-             value={aScore.value}
-             onChange={props.handleChange}
+              name={props.name}
+              id={props.id}
+              key={props.id}
+              value={aScore.value}
+              onChange={props.handleChange}
 /*             checked={this.state.selectedOption === 'option1'} */
           ></input>
       </label>
@@ -56,10 +59,16 @@ function ChallengeItem(props) {
         {(() => {
           switch (challenge.controlType) {
             case "checkbox":  return <ACheckbox score={challenge.score}
+                                                name={challenge.name}
+                                                id={challenge.guid}
                                                 handleChange = {props.handleChange} />;
             case "radio":     return <ARadioGroup score={challenge.score}
+                                                name={challenge.name}
+                                                id={challenge.guid}
                                                 handleChange ={props.handleChange} />;
             case "combo":     return <AComboBox score={challenge.score}
+                                                name={challenge.name}
+                                                id={challenge.guid}
                                                 handleChange ={props.handleChange} />;
             default:  return '';
           }
@@ -72,13 +81,13 @@ function ChallengeItem(props) {
 }
 
 function ChallengeList(props) {
-  const challenges = props.challenges;
+  const {challenges, handleChange} = props;
   return (
     <div>
       {challenges.map((challenge) =>
         <ChallengeItem key={challenge.guid.toString()}
                   challenge={challenge}
-                  handleChange={props.handleChange}  />
+                  handleChange={handleChange}  />
       )}
     </div>
   );
@@ -97,9 +106,13 @@ class FLL2013ChallengeCalc extends Component {
   }
 
   handleChange(event) {
-    console.log(event);
+    console.log('A'+event);
+    console.log('B'+event.target.name);
+    console.log('C'+event.target.value);
+
 //    this.setState({value: event.target.value});
     this.setState({[event.target.name]: event.target.value});
+
   }
 
   handleSubmit(event) {
@@ -113,7 +126,7 @@ class FLL2013ChallengeCalc extends Component {
       <div className = "container">
         <div className = "row row-offcanvas row-offcanvas-right">
           <div className = "col-xs-12 col-sm-9">
-            <h2>Contact List</h2>
+            <h2>Nature&apos;s Fury</h2>
             <ChallengeList handleChange={this.handleChange} challenges={this.state.stateChallenges} />
           </div>
         </div>
