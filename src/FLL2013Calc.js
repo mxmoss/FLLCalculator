@@ -27,20 +27,19 @@ function AComboBox(props){
 function ARadioGroup(props){
   const {score, name, id, handleChange} = props;
   return(
-    <div className="radio-toolbar" name={id} key={id} id={id}>
+    <div className="radio" name={id} key={id} id={id}>
     {score.map((aScore) =>
-      <label htmlFor={name + aScore.value.toString()}
+      <label
           key={"L"+id +"-"+ aScore.value.toString()}
-          >{aScore.name}
+          >
 
           <input type="radio"
-              name={name + aScore.value.toString()}
-              id= {id +"-"+ aScore.value.toString()}
+              name={name}
               key={id +"-"+ aScore.value.toString()}
               value={aScore.value}
               onChange={handleChange}
-/*             checked={this.state.selectedOption === 'option1'} */
           ></input>
+          {aScore.name}
       </label>
     )}
     </div>
@@ -113,6 +112,7 @@ class FLL2013ChallengeCalc extends Component {
   }
 
   handleChange(event) {
+    console.log('Type: '+event.target.type)
     console.log('Item: '+event.target.name);
     console.log('Value: '+event.target.value);
     const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
