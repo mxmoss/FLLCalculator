@@ -4,15 +4,16 @@ import React, {Component} from 'react';
 import challenges from './FLL2013Challenge.json';
 
 function ACheckbox(props){
+  const {score, name, id, handleChange} = props;
   return(
-    <input type="checkbox" name={props.name} id={props.id} onChange={props.handleChange}/>
+    <input type="checkbox" name={name} score={score} id={id} key={id.toString()} onChange={handleChange}/>
   )
 }
 
 function AComboBox(props){
-  const score = props.score;
+  const {score, name, id, handleChange} = props;
   return(
-    <select name={props.name} id={props.id} onChange={props.handleChange}>
+    <select name={name} id={id} onChange={handleChange}>
       {score.map((aScore) =>
         <option value={aScore.value} >{aScore.name}</option>
       )}
