@@ -23,7 +23,7 @@ function AComboBox(props){
 function ARadioGroup(props){
   const score = props.score;
   return(
-    <div className="radio-toolbar">
+    <div className="radio">
     {score.map((aScore) =>
       <label htmlFor={aScore.name}>{aScore.name}
           <input type="radio"
@@ -35,6 +35,14 @@ function ARadioGroup(props){
     )}
     </div>
   )
+}
+
+function FullDescription(props){
+  return  <p>{props.desc}</p>
+}
+
+function ShortDescription(props){
+  return  <p>Goal:{props.desc}</p>
 }
 
 function ChallengeItem(props) {
@@ -56,8 +64,8 @@ function ChallengeItem(props) {
             default:  return '';
           }
         })()}
-        <p>Goal: {challenge.hint}</p>
-        <p>{challenge.description}</p>
+        <ShortDescription desc={challenge.hint} />
+        <FullDescription desc={challenge.description} />
       </div>
     </div>
   )
@@ -90,7 +98,8 @@ class FLL2013ChallengeCalc extends Component {
 
   handleChange(event) {
     console.log(event);
-    this.setState({value: event.target.value});
+//    this.setState({value: event.target.value});
+    this.setState({[event.target.name]: event.target.value});
   }
 
   handleSubmit(event) {
