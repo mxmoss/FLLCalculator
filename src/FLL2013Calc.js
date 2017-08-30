@@ -6,7 +6,7 @@ import challenges from './FLL2013Challenge.json';
 function ACheckbox(props){
   const {score, name, id, handleChange} = props;
   return(
-    <input type="checkbox" name={name} score={score} id={id} key={id.toString()} onChange={handleChange}/>
+    <input type="checkbox" name={name} id={id} key={id.toString()} onChange={handleChange}/>
   )
 }
 
@@ -15,22 +15,28 @@ function AComboBox(props){
   return(
     <select name={name} id={id} onChange={handleChange}>
       {score.map((aScore) =>
-        <option value={aScore.value} >{aScore.name}</option>
+        <option
+          value={aScore.value}
+          key={id +"-"+ aScore.value.toString()}
+        >{aScore.name}</option>
       )}
     </select>
   )
 }
 
 function ARadioGroup(props){
-  const score = props.score;
+  const {score, name, id, handleChange} = props;  //name,
   return(
-    <div className="radio">
+    <div className="radio-toolbar" id={id}>
     {score.map((aScore) =>
-      <label htmlFor={aScore.name}>{aScore.name}
+      <label htmlFor={aScore.name}
+          key={"L"+id +"-"+ aScore.value.toString()} 
+          >{aScore.name}
+
           <input type="radio"
-              name={props.name}
-              id={props.id}
-              key={props.id}
+              name={name + aScore.value.toString()}
+              id= {id +"-"+ aScore.value.toString()}
+              key={id +"-"+ aScore.value.toString()}
               value={aScore.value}
               onChange={props.handleChange}
 /*             checked={this.state.selectedOption === 'option1'} */
@@ -107,11 +113,8 @@ class FLL2013ChallengeCalc extends Component {
   }
 
   handleChange(event) {
-    console.log('A'+event);
-    console.log('B'+event.target.name);
-    console.log('C'+event.target.value);
-
-//    this.setState({value: event.target.value});
+    console.log('Item: '+event.target.name);
+    console.log('Value: '+event.target.value);
     this.setState({[event.target.name]: event.target.value});
 
   }
