@@ -25,12 +25,12 @@ function AComboBox(props){
 }
 
 function ARadioGroup(props){
-  const {score, name, id, handleChange} = props;  //name,
+  const {score, name, id, handleChange} = props;
   return(
-    <div className="radio-toolbar" id={id}>
+    <div className="radio-toolbar" name={id} key={id} id={id}>
     {score.map((aScore) =>
-      <label htmlFor={aScore.name}
-          key={"L"+id +"-"+ aScore.value.toString()} 
+      <label htmlFor={name + aScore.value.toString()}
+          key={"L"+id +"-"+ aScore.value.toString()}
           >{aScore.name}
 
           <input type="radio"
@@ -38,7 +38,7 @@ function ARadioGroup(props){
               id= {id +"-"+ aScore.value.toString()}
               key={id +"-"+ aScore.value.toString()}
               value={aScore.value}
-              onChange={props.handleChange}
+              onChange={handleChange}
 /*             checked={this.state.selectedOption === 'option1'} */
           ></input>
       </label>
@@ -56,7 +56,7 @@ function ShortDescription(props){
 }
 
 function ChallengeItem(props) {
-  const challenge = props.challenge;
+  const {challenge, handleChange} = props;
   return(
     <div className="row">
       <div className="col-xs-6 col-lg-4">
@@ -68,15 +68,15 @@ function ChallengeItem(props) {
             case "checkbox":  return <ACheckbox score={challenge.score}
                                                 name={challenge.name}
                                                 id={challenge.guid}
-                                                handleChange = {props.handleChange} />;
+                                                handleChange = {handleChange} />;
             case "radio":     return <ARadioGroup score={challenge.score}
                                                 name={challenge.name}
                                                 id={challenge.guid}
-                                                handleChange ={props.handleChange} />;
+                                                handleChange ={handleChange} />;
             case "combo":     return <AComboBox score={challenge.score}
                                                 name={challenge.name}
                                                 id={challenge.guid}
-                                                handleChange ={props.handleChange} />;
+                                                handleChange ={handleChange} />;
             default:  return '';
           }
         })()}
@@ -116,7 +116,6 @@ class FLL2013ChallengeCalc extends Component {
     console.log('Item: '+event.target.name);
     console.log('Value: '+event.target.value);
     this.setState({[event.target.name]: event.target.value});
-
   }
 
   handleSubmit(event) {
