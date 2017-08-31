@@ -32,7 +32,6 @@ function ARadioGroup(props){
       <label
           key={"L"+id +"-"+ aScore.value.toString()}
           >
-
           <input type="radio"
               name={name}
               key={id +"-"+ aScore.value.toString()}
@@ -51,7 +50,7 @@ function FullDescription(props){
 }
 
 function ShortDescription(props){
-  return  <p>Goal:{props.desc}</p>
+  return  <p>Mission:{props.desc}</p>
 }
 
 function ChallengeItem(props) {
@@ -113,8 +112,24 @@ class FLL2013ChallengeCalc extends Component {
 
   handleChange(event) {
     console.log('Type: '+event.target.type)
-    console.log('Item: '+event.target.name);
+    console.log('Name: '+event.target.name);
     console.log('Value: '+event.target.value);
+    console.log('id: '+event.target.id);
+//    console.log('score: %o ',this.state.stateChallenges[0].score[1]);
+
+    var result = this.state.stateChallenges.filter(function(challenge){
+      console.log('in %o',challenge);
+      console.log('on '+challenge.guid.toString());
+      console.log('un '+event.target.id.toString());
+      if (challenge.guid.toString() === event.target.id.toString()){
+        console.log('success!');
+      }
+      return challenge.guid.toString() === event.target.id.toString()
+    }).map((challenge) => challenge.score.on);
+
+    console.log('result: '+result);
+
+
     const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
     this.setState({[event.target.name]: value});
   }

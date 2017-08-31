@@ -4,7 +4,7 @@
 		"name": "Supply Truck",
 		"picture": "SupplyTruck.jpg",
 		"controlType": "checkbox",
-		"score": [{"fail": "0"}, {"success": "20"}],
+		"score": [{"off": "0"}, {"on": "20"}],
 		"max": "20",
 		"hint": "The supply truck is touching the mat in the yellow region.",
 		"description": "The supply truck is touching the mat in the yellow region."
@@ -14,7 +14,7 @@
 		"name": "Evacuation Sign",
 		"picture": "Evacuation.jpg",
 		"controlType": "checkbox",
-		"score": [{"fail": "0"}, {"success": "30"}],
+		"score": [{"off": "0"}, {"on": "30"}],
 		"max": "30",
 		"hint": "The sign must be up.",
 		"description": "The sign is obviously up (it does not need to be vertical), held in place only by the slider's friction with the mat. No part of the sign model is being touched by the robot, or any strategic object."
@@ -24,7 +24,7 @@
 		"name": "Tree Branch",
 		"picture": "TreeBranch.jpg",
 		"controlType": "checkbox",
-		"score": [{"fail": "0"}, {"success": "30"}],
+		"score": [{"off": "0"}, {"on": "30"}],
 		"max": "30",
 		"hint": "Tree branch is off the electric cables.",
 		"description": "The east tree branch is closer to the mat than the electric cables are. The tree and the electric cable models are upright, touching the mat."
@@ -34,7 +34,7 @@
 		"name": "Tsunami",
 		"picture": "Tsunami.jpg",
 		"controlType": "checkbox",
-		"score": [{"fail": "0"}, {"success": "20"}],
+		"score": [{"off": "0"}, {"on": "20"}],
 		"max": "20",
 		"hint": "All three waves are touching the mat.",
 		"description": "All three waves are touching the mat."
@@ -44,7 +44,7 @@
 		"name": "Ambulance",
 		"picture": "Ambulance.jpg",
 		"controlType": "checkbox",
-		"score": [{"fail": "0"}, {"success": "25"}],
+		"score": [{"off": "0"}, {"on": "25"}],
 		"max": "25",
 		"hint": "The ambulance is in the yellow region.",
 		"description": "The ambulance is in the yellow region. All the ambulance's wheels are touching the mat."
@@ -54,7 +54,7 @@
 		"name": "Runway",
 		"picture": "Placeholder.jpg",
 		"controlType": "checkbox",
-		"score": [{"fail": "0"}, {"success": "30"}],
+		"score": [{"off": "0"}, {"on": "30"}],
 		"max": "30",
 		"hint": "Nothing except wave water and/or the plane is touching the mat",
 		"description": "Nothing except wave water and/or the plane is touching the mat anywhere on the runway."
@@ -64,7 +64,7 @@
 		"name": "Construction Relocation",
 		"picture": "ConstRelocation.jpg",
 		"controlType": "checkbox",
-		"score": [{"fail": "0"}, {"success": "20"}],
+		"score": [{"off": "0"}, {"on": "20"}],
 		"max": "20",
 		"hint": "There are no gray building units anywhere in the LT green region.",
 		"description": "There are no gray building units anywhere in the LT green region."
@@ -74,7 +74,7 @@
 		"name": "House Lift",
 		"picture": "HouseLift.jpg",
 		"controlType": "checkbox",
-		"score": [{"fail": "0"}, {"success": "25"}],
+		"score": [{"off": "0"}, {"on": "25"}],
 		"max": "25",
 		"hint": "The house is locked in its high position.",
 		"description": "The house is locked in its high position."
@@ -84,7 +84,7 @@
 		"name": "Safe Place",
 		"picture": "Placeholder.jpg",
 		"controlType": "checkbox",
-		"score": [{"fail": "0"}, {"success": "25"}],
+		"score": [{"off": "0"}, {"on": "25"}],
 		"max": "25",
 		"hint": "The robot is in the red region at the end of the match",
 		"description": ""
@@ -94,7 +94,7 @@
 		"name": "Base Isolation Test",
 		"picture": "BaseIsolation.jpg",
 		"controlType": "checkbox",
-		"score": [{"fail": "0"}, {"success": "30"}],
+		"score": [{"off": "0"}, {"on": "30"}],
 		"max": "30",
 		"hint": "The west tan building is undamaged.  The east tan building is obviously damaged.",
 		"description": "The west tan building is undamaged: Four segments, right angles to mat, and 'perfect' alignment. The east tan building is obviously damaged. *Nothing is touching either building except the rolling frame. *Nothing ever touched either building except the rolling frame. The damage was caused purely by movement of the rolling frame *Exception: Fallen segments from the east building may touch the mat and/or the west building by chance."
