@@ -99,7 +99,7 @@ function ChallengeList(props) {
 }
 
 function CurrentScore(props){
-  return  <p>{props.curScore}</p>
+  return  <p>Current Score: {props.curScore}</p>
 }
 
 class FLL2013ChallengeCalc extends Component {
@@ -107,8 +107,7 @@ class FLL2013ChallengeCalc extends Component {
     super(props);
     this.state = {
       stateChallenges : challenges,
-      curScore: 0,
-      value: 0
+      curScore: 0
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -118,20 +117,22 @@ class FLL2013ChallengeCalc extends Component {
     console.log('Type: '+event.target.type)
     console.log('Name: '+event.target.name);
     console.log('id: '+event.target.id);
+    console.log(this.state.stateChallenges);
 
+    //get the value of the checkbox
     var cbxValue = this.state.stateChallenges
       .filter(function(challenge){
         return challenge.guid.toString() === event.target.id.toString()})
       .map((challenge) =>
         challenge.score);
 
-    const aValue = event.target.type === 'checkbox' ? cbxValue : event.target.value;
+    const aValue = event.target.type === 'checkbox' ? Number(cbxValue) : Number(event.target.value);
     this.setState({[event.target.name]: aValue});
 
     this.setState(function(prevState){
       console.log('prev score: '+ prevState.curScore)
       return{
-        curColor: prevState.curScore = (prevState.curScore + aValue)
+        curScore: prevState.curScore = (Number(prevState.curScore) + aValue)
       }
     })
   }
