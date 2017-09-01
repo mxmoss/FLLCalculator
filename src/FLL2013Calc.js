@@ -14,10 +14,10 @@ function AComboBox(props){
   const {score, name, id, handleChange} = props;
   return(
     <select name={name} id={id} onChange={handleChange}>
-      {score.map((aScore) =>
+      {score.map((aScore, index) =>
         <option
           value={aScore.value}
-          key={id +"-"+ aScore.value.toString()}
+          key={id +"-"+ aScore.name}
         >{aScore.name}</option>
       )}
     </select>
@@ -113,25 +113,16 @@ class FLL2013ChallengeCalc extends Component {
   handleChange(event) {
     console.log('Type: '+event.target.type)
     console.log('Name: '+event.target.name);
-    console.log('Value: '+event.target.value);
     console.log('id: '+event.target.id);
 //    console.log('score: %o ',this.state.stateChallenges[0].score[1]);
 
-    var result = this.state.stateChallenges.filter(function(challenge){
-      console.log('in %o',challenge);
-      console.log('on '+challenge.guid.toString());
-      console.log('un '+event.target.id.toString());
-      if (challenge.guid.toString() === event.target.id.toString()){
-        console.log('success!');
-      }
+    var cbxValue = this.state.stateChallenges.filter(function(challenge){
       return challenge.guid.toString() === event.target.id.toString()
-    }).map((challenge) => challenge.score.on);
+    }).map((challenge) => challenge.score);
 
-    console.log('result: '+result);
-
-
-    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
-    this.setState({[event.target.name]: value});
+    const aValue = event.target.type === 'checkbox' ? cbxValue : event.target.value;
+    this.setState({[event.target.name]: aValue});
+    console.log('Value: '+aValue);
   }
 
   handleSubmit(event) {
