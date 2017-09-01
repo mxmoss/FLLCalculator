@@ -122,24 +122,38 @@ class FLL2013ChallengeCalc extends Component {
     })
   }
 
+  prevScore(event){
+    //lookup the previous score for this challenge
+    return(this.state.prevScores
+      .filter(function(score){
+        return score.name === event.target.name})
+      .map((score) =>
+        score.score)
+    )
+  }
+
+  cbxValue(event){
+    //get the value of the checkbox
+    return(this.state.stateChallenges
+      .filter(function(challenge){
+        return challenge.guid.toString() === event.target.id.toString()})
+      .map((challenge) =>
+        challenge.score)
+    )
+  }
+
   handleChange(event) {
     console.log('Type: '+event.target.type)
     console.log('Name: '+event.target.name);
     console.log('id: '+event.target.id);
     console.log(this.state.stateChallenges);
 
-    //get the value of the checkbox
-    var cbxValue = this.state.stateChallenges
-      .filter(function(challenge){
-        return challenge.guid.toString() === event.target.id.toString()})
-      .map((challenge) =>
-        challenge.score);
-
-    //get value differently if it is a checkbox vs other controls
-    const aValue = event.target.type === 'checkbox' ? Number(cbxValue) : Number(event.target.value);
+    //assign value depending on whether it is a checkbox vs other controls
+    const aValue = event.target.type === 'checkbox' ? Number(this.cbxValue(event)) : Number(event.target.value);
     this.setState({[event.target.name]: aValue});
 
     this.setState(function(prevState){
+      console.log('prev state obj %o',prevState)
       console.log('prev score: '+ prevState.curScore)
       return{
         curScore: prevState.curScore = (Number(prevState.curScore) + aValue)
