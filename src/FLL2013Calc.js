@@ -126,45 +126,58 @@ class FLL2013ChallengeCalc extends Component {
     //lookup the previous score for this challenge
     return(this.state.prevScores
       .filter(function(score){
-        return score.name === event.target.name})
+        return score.name === event})
       .map((score) =>
         score.score)
     )
   }
 
+  //get the value of a checkbox
   cbxValue(event){
-    //get the value of the checkbox
-    return(this.state.stateChallenges
-      .filter(function(challenge){
-        return challenge.guid.toString() === event.target.id.toString()})
-      .map((challenge) =>
-        challenge.score)
+    return(
+      //return zero if not checked
+      event.target.checked === true ?
+        this.state.stateChallenges
+        .filter(function(challenge){
+          return challenge.guid.toString() === event.target.id.toString()})
+        .map((challenge) =>
+          challenge.score
+        )
+        : 0
     )
   }
 
   handleChange(event) {
-    console.log('Type: '+event.target.type)
-    console.log('Name: '+event.target.name);
-    console.log('id: '+event.target.id);
-    console.log(this.state.stateChallenges);
-
-
-    //to do
-    // get previous score for the current control
-    // set curScore to curScore - previous score + new score
-    // update previous score for current control with current score
+    const name = event.target.name;
+    // console.log('Type: '+event.target.type)
+    // console.log('Name: '+name);
+    // console.log('id: '+event.target.id);
+    // console.log(this.state.stateChallenges);
 
     //assign value depending on whether it is a checkbox vs other controls
+    console.log('checked?'+event.target.checked)
     const aValue = event.target.type === 'checkbox' ? Number(this.cbxValue(event)) : Number(event.target.value);
-    this.setState({[event.target.name]: aValue});
+    this.setState({[name]: aValue});
 
+    //add new amount to current score
     this.setState(function(prevState){
-      console.log('prev state obj %o',prevState)
-      console.log('prev score: '+ prevState.curScore)
+      // console.log('prev state obj %o',prevState)
+      // console.log('prevstate name: '+ name)
+      // console.log('prev score: '+ prevState.curScore)
       return{
-        curScore: prevState.curScore = (Number(prevState.curScore) + aValue)
+        curScore: prevState.curScore = (Number(prevState.curScore) - this.prevScore(name) + aValue)
       }
     })
+
+    //Update record of previous scores
+    this.setState(function(prevState){
+      return{
+        prevScores: this.state.prevScores.map((score) =>
+          score.name === name ? {"name":score.name, "score":aValue} : {"name":score.name, "score":score.score}
+        )
+      }
+    })
+
   }
 
   handleSubmit(event) {
