@@ -148,6 +148,12 @@ class FLL2013ChallengeCalc extends Component {
     console.log('id: '+event.target.id);
     console.log(this.state.stateChallenges);
 
+
+    //to do
+    // get previous score for the current control
+    // set curScore to curScore - previous score + new score
+    // update previous score for current control with current score
+
     //assign value depending on whether it is a checkbox vs other controls
     const aValue = event.target.type === 'checkbox' ? Number(this.cbxValue(event)) : Number(event.target.value);
     this.setState({[event.target.name]: aValue});
