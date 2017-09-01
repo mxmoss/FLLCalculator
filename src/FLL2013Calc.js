@@ -107,10 +107,19 @@ class FLL2013ChallengeCalc extends Component {
     super(props);
     this.state = {
       stateChallenges : challenges,
-      curScore: 0
+      curScore: 0,
+      prevScores: []
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount(){
+    //initialize previous scores to zero
+    this.setState({
+      prevScores : this.state.stateChallenges
+          .map(function(a) {return {"name":a.name, "score":0}})
+    })
   }
 
   handleChange(event) {
@@ -126,6 +135,7 @@ class FLL2013ChallengeCalc extends Component {
       .map((challenge) =>
         challenge.score);
 
+    //get value differently if it is a checkbox vs other controls
     const aValue = event.target.type === 'checkbox' ? Number(cbxValue) : Number(event.target.value);
     this.setState({[event.target.name]: aValue});
 
