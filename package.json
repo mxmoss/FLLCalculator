@@ -5,7 +5,7 @@
   "homepage": "https://mxmoss.github.io/fll2013challenge/index.html",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mxmoss/fll2013challenge.git"
+    "url": "git://github.com/mxmoss/fll2013challenge.git"
   },
   "author": "Moss Drake <mxmossman@gmail.com>",
   "dependencies": {
