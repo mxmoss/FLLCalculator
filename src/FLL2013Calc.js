@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import challenges from './FLL2013Challenge.json';
 
 function ACheckbox(props){
-  const {score, name, id, handleChange} = props;
+  const {name, id, handleChange} = props;
   return(
     <input type="checkbox" name={name} id={id} key={id.toString()} onChange={handleChange}/>
   )
