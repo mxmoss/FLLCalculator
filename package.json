@@ -3,7 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://mxmoss.github.io/fll2013challenge/index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mxmoss/FLL2013Challenge.git"
+  },
+  "author": "Moss Drake <mxmossman@gmail.com>",
   "dependencies": {
+    "bootstrap": "^3.3.7",
+    "gh-pages": "^1.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.12"
@@ -15,8 +22,5 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "gh-pages": "^1.0.0"
   }
 }
