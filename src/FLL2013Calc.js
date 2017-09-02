@@ -99,8 +99,13 @@ function ChallengeList(props) {
 }
 
 function CurrentScore(props){
-  return  <p>Current Score: {props.curScore}</p>
+  return(
+    <div style={{position: 'fixed', top: '30px', right:'100px'}}>
+      <p>Current Score: {props.curScore} points</p>
+    </div>
+  )
 }
+
 
 class FLL2013ChallengeCalc extends Component {
   constructor(props) {
