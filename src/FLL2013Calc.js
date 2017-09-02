@@ -116,7 +116,6 @@ class FLL2013ChallengeCalc extends Component {
       prevScores: []
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount(){
@@ -154,21 +153,13 @@ class FLL2013ChallengeCalc extends Component {
 
   handleChange(event) {
     const name = event.target.name;
-    // console.log('Type: '+event.target.type)
-    // console.log('Name: '+name);
-    // console.log('id: '+event.target.id);
-    // console.log(this.state.stateChallenges);
 
     //assign value depending on whether it is a checkbox vs other controls
-    console.log('checked?'+event.target.checked)
     const aValue = event.target.type === 'checkbox' ? Number(this.cbxValue(event)) : Number(event.target.value);
     this.setState({[name]: aValue});
 
     //add new amount to current score
     this.setState(function(prevState){
-      // console.log('prev state obj %o',prevState)
-      // console.log('prevstate name: '+ name)
-      // console.log('prev score: '+ prevState.curScore)
       return{
         curScore: prevState.curScore = (Number(prevState.curScore) - this.prevScore(name) + aValue)
       }
@@ -185,18 +176,12 @@ class FLL2013ChallengeCalc extends Component {
 
   }
 
-  handleSubmit(event) {
-    console.log(event);
-    event.preventDefault();
-    this.setState({inputValue: event.target.value});
-  }
-
   render() {
     return (
       <div className = "container">
         <div className = "row row-offcanvas row-offcanvas-right">
           <div className = "col-xs-12 col-sm-9">
-            <h2>Nature&apos;s Fury</h2>
+            <h2>2013 FLL Challenge Nature&apos;s Fury</h2>
             <CurrentScore curScore={this.state.curScore} />
             <ChallengeList handleChange={this.handleChange} challenges={this.state.stateChallenges} />
           </div>
