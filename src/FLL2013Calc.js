@@ -3,6 +3,30 @@
 import React, {Component} from 'react';
 import challenges from './FLL2013Challenge.json';
 
+function NavBar(){
+  return(
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  )
+}
 function ACheckbox(props){
   const {name, id, handleChange} = props;
   return(
@@ -178,12 +202,15 @@ class FLL2013ChallengeCalc extends Component {
 
   render() {
     return (
-      <div className = "container">
-        <div className = "row row-offcanvas row-offcanvas-right">
-          <div className = "col-xs-12 col-sm-9">
-            <h2>2013 FLL Challenge Nature&apos;s Fury</h2>
-            <CurrentScore curScore={this.state.curScore} />
-            <ChallengeList handleChange={this.handleChange} challenges={this.state.stateChallenges} />
+      <div>
+        <NavBar />
+        <div className = "container">
+          <div className = "row row-offcanvas row-offcanvas-right">
+            <div className = "col-xs-12 col-sm-9">
+              <h2>2013 FLL Challenge Nature&apos;s Fury</h2>
+              <CurrentScore curScore={this.state.curScore} />
+              <ChallengeList handleChange={this.handleChange} challenges={this.state.stateChallenges} />
+            </div>
           </div>
         </div>
       </div>
