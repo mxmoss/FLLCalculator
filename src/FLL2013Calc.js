@@ -3,11 +3,18 @@
 import React, {Component} from 'react';
 import challenges from './FLL2013Challenge.json';
 
-function NavBar(){
+function CurrentScore(props){
+const aScore = "Current Score: "+props.curScore+" points";
+  return <div className="navbar-brand" >{aScore}</div>
+}
+//<NavBar curScore={this.state.curScore} />
+
+function NavBar(props){
   return(
     <nav className="navbar navbar-fixed-top navbar-inverse">
       <div className="container">
         <div className="navbar-header">
+          <CurrentScore curScore={props.curScore} />
           <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span className="sr-only">Toggle navigation</span>
             <span className="icon-bar"></span>
@@ -87,22 +94,13 @@ function ShortDescription(props){
   return  <p>Mission:{props.desc}</p>
 }
 
-function SideBar(props){
-  return(
-    <div className="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-      <div className="list-group">
-      {props.score}
-      </div>
-    </div>
-  )
-}
-
 function ChallengeItem(props) {
   const {challenge, handleChange} = props;
   return(
     <div className="col-xs-6 col-lg-4">
-      <h3><img className="image" src={"icons/" + challenge.picture} alt={challenge.name}  style={{ width: '80px', height: '80px' }} />
-      {challenge.name} - Max {challenge.max} pts</h3>
+      <img className="image" src={"icons/" + challenge.picture} alt={challenge.name}  style={{ width: '80px', height: '80px' }} />
+      <h3>{challenge.name}</h3>
+      <h4>Max {challenge.max} pts</h4>
 
       {(() => {
         switch (challenge.controlType) {
@@ -138,14 +136,6 @@ function ChallengeList(props) {
       )}
     </div>
   );
-}
-
-function CurrentScore(props){
-const aScore = "Current Score: "+props.curScore+" points";
-console.log(aScore);
-  return(
-    <SideBar score={aScore} />
-  )
 }
 
 class FLL2013ChallengeCalc extends Component {
@@ -222,11 +212,10 @@ class FLL2013ChallengeCalc extends Component {
       <div>
         <div className = "container">
           <div className = "row row-offcanvas row-offcanvas-right">
-            <NavBar />
+            <NavBar curScore={this.state.curScore} />
             <div className="col-xs-12 col-sm-9">
               <Header title="Nature&apos;s Fury" />
               <ChallengeList handleChange={this.handleChange} challenges={this.state.stateChallenges} />
-              <CurrentScore curScore={this.state.curScore} />
             </div>
           </div>
         </div>
