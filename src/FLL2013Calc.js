@@ -7,7 +7,6 @@ function CurrentScore(props){
 const aScore = "Current Score: "+props.curScore+" points";
   return <div className="navbar-brand" >{aScore}</div>
 }
-//<NavBar curScore={this.state.curScore} />
 
 function NavBar(props){
   return(
@@ -87,16 +86,21 @@ function ARadioGroup(props){
   )
 }
 
-function FullDescription(props){
-    if (props.expanded) {
-  return <p>{props.desc} <a href="#collapse">See Less&lt;&lt;</a></p>;
-    } else {
-  return null;
-   }
-}
-
-function ShortDescription(props){
-  return  <p>Mission:{props.desc}  <a href="#collapse">See More&gt;&gt;</a></p>
+function Description(props){
+  const challenge = props.challenge;
+  console.log('hey %o',props);
+  if (challenge.expanded == "true") {
+    return(
+      <div>
+      <p>Mission:{challenge.hint}</p>
+      <p>{challenge.description} <a href="#collapse">See Less&lt;&lt;</a> </p>;
+      </div>
+    )
+  } else {
+    return (
+      <p>Mission:{challenge.hint}  <a href="#collapse">See More&gt;&gt;</a></p>
+    )
+  }
 }
 
 function ChallengeItem(props) {
@@ -124,8 +128,7 @@ function ChallengeItem(props) {
           default:  return '';
         }
       })()}
-      <ShortDescription desc={challenge.hint} showing={challenge.expanded}/>
-      <FullDescription desc={challenge.description} showing={challenge.expanded} />
+      <Description challenge={challenge}/>
     </div>
   )
 }
@@ -189,6 +192,7 @@ class FLL2013ChallengeCalc extends Component {
 
   handleChange(event) {
     const name = event.target.name;
+    console.log(name);
 
     //assign value depending on whether it is a checkbox vs other controls
     const aValue = event.target.type === 'checkbox' ? Number(this.cbxValue(event)) : Number(event.target.value);
