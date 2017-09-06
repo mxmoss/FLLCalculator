@@ -5,20 +5,20 @@ import challenges from './FLL2013Challenge.json';
 
 function NavBar(){
   return(
-    <nav class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+    <nav className="navbar navbar-fixed-top navbar-inverse">
+      <div className="container">
+        <div className="navbar-header">
+          <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span className="sr-only">Toggle navigation</span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a className="navbar-brand" href="#">Project name</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+        <div id="navbar" className="collapse navbar-collapse">
+          <ul className="nav navbar-nav">
+            <li className="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -27,6 +27,16 @@ function NavBar(){
     </nav>
   )
 }
+
+function Header(props){
+  return(
+    <div className="jumbotron">
+      <h1>{props.title}</h1>
+      <p>Calculator for the 2013 FLL Robot Challenge.</p>
+    </div>
+  )
+}
+
 function ACheckbox(props){
   const {name, id, handleChange} = props;
   return(
@@ -77,34 +87,42 @@ function ShortDescription(props){
   return  <p>Mission:{props.desc}</p>
 }
 
+function SideBar(props){
+  return(
+    <div className="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+      <div className="list-group">
+      {props.score}
+      </div>
+    </div>
+  )
+}
+
 function ChallengeItem(props) {
   const {challenge, handleChange} = props;
   return(
-    <div className="row">
-      <div className="col-xs-6 col-lg-4">
-        <h3><img className="image" src={"icons/" + challenge.picture} alt={challenge.name}  style={{ width: '80px', height: '80px' }} />
-        {challenge.name} - Max {challenge.max} pts</h3>
+    <div className="col-xs-6 col-lg-4">
+      <h3><img className="image" src={"icons/" + challenge.picture} alt={challenge.name}  style={{ width: '80px', height: '80px' }} />
+      {challenge.name} - Max {challenge.max} pts</h3>
 
-        {(() => {
-          switch (challenge.controlType) {
-            case "checkbox":  return <ACheckbox score={challenge.score}
-                                                name={challenge.name}
-                                                id={challenge.guid}
-                                                handleChange = {handleChange} />;
-            case "radio":     return <ARadioGroup score={challenge.score}
-                                                name={challenge.name}
-                                                id={challenge.guid}
-                                                handleChange ={handleChange} />;
-            case "combo":     return <AComboBox score={challenge.score}
-                                                name={challenge.name}
-                                                id={challenge.guid}
-                                                handleChange ={handleChange} />;
-            default:  return '';
-          }
-        })()}
-        <ShortDescription desc={challenge.hint} />
-        <FullDescription desc={challenge.description} />
-      </div>
+      {(() => {
+        switch (challenge.controlType) {
+          case "checkbox":  return <ACheckbox score={challenge.score}
+                                              name={challenge.name}
+                                              id={challenge.guid}
+                                              handleChange = {handleChange} />;
+          case "radio":     return <ARadioGroup score={challenge.score}
+                                              name={challenge.name}
+                                              id={challenge.guid}
+                                              handleChange ={handleChange} />;
+          case "combo":     return <AComboBox score={challenge.score}
+                                              name={challenge.name}
+                                              id={challenge.guid}
+                                              handleChange ={handleChange} />;
+          default:  return '';
+        }
+      })()}
+      <ShortDescription desc={challenge.hint} />
+      <FullDescription desc={challenge.description} />
     </div>
   )
 }
@@ -112,7 +130,7 @@ function ChallengeItem(props) {
 function ChallengeList(props) {
   const {challenges, handleChange} = props;
   return (
-    <div>
+    <div className ="row">
       {challenges.map((challenge) =>
         <ChallengeItem key={challenge.guid.toString()}
                   challenge={challenge}
@@ -123,13 +141,12 @@ function ChallengeList(props) {
 }
 
 function CurrentScore(props){
+const aScore = "Current Score: "+props.curScore+" points";
+console.log(aScore);
   return(
-    <div style={{position: 'fixed', top: '30px', right:'100px'}}>
-      <p>Current Score: {props.curScore} points</p>
-    </div>
+    <SideBar score={aScore} />
   )
 }
-
 
 class FLL2013ChallengeCalc extends Component {
   constructor(props) {
@@ -203,13 +220,13 @@ class FLL2013ChallengeCalc extends Component {
   render() {
     return (
       <div>
-        <NavBar />
         <div className = "container">
           <div className = "row row-offcanvas row-offcanvas-right">
-            <div className = "col-xs-12 col-sm-9">
-              <h2>2013 FLL Challenge Nature&apos;s Fury</h2>
-              <CurrentScore curScore={this.state.curScore} />
+            <NavBar />
+            <div className="col-xs-12 col-sm-9">
+              <Header title="Nature&apos;s Fury" />
               <ChallengeList handleChange={this.handleChange} challenges={this.state.stateChallenges} />
+              <CurrentScore curScore={this.state.curScore} />
             </div>
           </div>
         </div>
