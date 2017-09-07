@@ -6,7 +6,7 @@
 		"controlType": "checkbox",
 		"score": "20",
 		"max": "20",
-		"expanded": "false",
+		"expanded": "true",
 		"hint": "The supply truck is touching the mat in the yellow region.",
 		"description": "The supply truck is touching the mat in the yellow region."
 	},

@@ -86,21 +86,26 @@ function ARadioGroup(props){
   )
 }
 
+// <div>
+//   <button onClick={this.toggleHidden.bind(this)} >
+//     Click to show modal
+//   </button>
+//   {!this.state.isHidden && <Child />}
+// </div>
+
 function Description(props){
   const challenge = props.challenge;
-  console.log('hey %o',props);
-  if (challenge.expanded == "true") {
-    return(
-      <div>
-      <p>Mission:{challenge.hint}</p>
-      <p>{challenge.description} <a href="#collapse">See Less&lt;&lt;</a> </p>;
-      </div>
-    )
-  } else {
-    return (
-      <p>Mission:{challenge.hint}  <a href="#collapse">See More&gt;&gt;</a></p>
-    )
-  }
+  return(
+    <div>
+    <p>Mission: {challenge.hint}
+      <button name="btnToggle" onClick={props.onClick} >
+        Toggle
+      </button>
+    </p>
+    <p>{challenge.expanded === "true" ?  challenge.description: null}
+    </p>
+    </div>
+  )
 }
 
 function ChallengeItem(props) {
@@ -128,7 +133,7 @@ function ChallengeItem(props) {
           default:  return '';
         }
       })()}
-      <Description challenge={challenge}/>
+      <Description challenge={challenge}  onClick={props.handleChange}/>
     </div>
   )
 }
