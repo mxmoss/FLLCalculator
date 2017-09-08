@@ -98,7 +98,7 @@ function Description(props){
   return(
     <div>
     <p>Mission: {challenge.hint}
-      <button name="btnToggle" onClick={props.onClick} >
+      <button name="btnToggle" value={challenge.name} id={challenge.guid} onClick={props.onClick} >
         Toggle
       </button>
     </p>
@@ -109,7 +109,7 @@ function Description(props){
 }
 
 function ChallengeItem(props) {
-  const {challenge, handleChange} = props;
+  const {challenge, handleChange, handleClick} = props;
   return(
     <div className="col-xs-6 col-lg-4">
       <img className="image" src={"icons/" + challenge.picture} alt={challenge.name}  style={{ width: '80px', height: '80px' }} />
@@ -133,19 +133,21 @@ function ChallengeItem(props) {
           default:  return '';
         }
       })()}
-      <Description challenge={challenge}  onClick={props.handleChange}/>
+      <Description challenge={challenge}  onClick={handleClick}/>
     </div>
   )
 }
 
 function ChallengeList(props) {
-  const {challenges, handleChange} = props;
+  const {challenges, handleChange, handleClick} = props;
   return (
     <div className ="row">
       {challenges.map((challenge) =>
         <ChallengeItem key={challenge.guid.toString()}
                   challenge={challenge}
-                  handleChange={handleChange}  />
+                  handleChange={handleChange}
+                  handleClick={handleClick}
+                    />
       )}
     </div>
   );
@@ -160,6 +162,7 @@ class FLL2013ChallengeCalc extends Component {
       prevScores: []
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount(){
@@ -195,9 +198,33 @@ class FLL2013ChallengeCalc extends Component {
     )
   }
 
+  handleClick(event) {
+    const name = event.target.name;
+    const target = event.target.id.toString();
+    console.log("ha "+name);
+    console.log("hi "+event.target.value);
+    console.log("ho "+target);
+
+    this.setState(function(prevState){
+      return{
+        stateChallenges:
+          this.state.stateChallenges
+          .filter(function(challenge){
+            console.log('a|'+challenge.guid.toString()+'|');
+            console.log('b|'+target+'|');
+            console.log('c|'+challenge.guid.toString() === target ? 'ye': 'no');
+            return challenge.guid.toString() === target})
+            .map((challenge) =>
+              challenge.expanded === "true" ? "false" : "true" //console.log(challenge.expanded)
+            )
+          }
+    })
+  }
+
   handleChange(event) {
     const name = event.target.name;
     console.log(name);
+    console.log(event.target.value);
 
     //assign value depending on whether it is a checkbox vs other controls
     const aValue = event.target.type === 'checkbox' ? Number(this.cbxValue(event)) : Number(event.target.value);
@@ -228,7 +255,7 @@ class FLL2013ChallengeCalc extends Component {
             <NavBar curScore={this.state.curScore} />
             <div className="col-xs-12 col-sm-9">
               <Header title="Nature&apos;s Fury" />
-              <ChallengeList handleChange={this.handleChange} challenges={this.state.stateChallenges} />
+              <ChallengeList handleChange={this.handleChange} handleClick={this.handleClick} challenges={this.state.stateChallenges} />
             </div>
           </div>
         </div>
