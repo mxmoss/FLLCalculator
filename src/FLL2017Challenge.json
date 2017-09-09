@@ -1,0 +1,263 @@
+[
+	{
+		"guid":"0ebf52b9-6ade-45c9-8847-a40c63f69892",
+		"name":"PIPE REMOVAL",
+		"picture":"PipeRemoval.png",
+		"controlType":"checkbox",
+		"score":"20",
+		"max":"20",
+		"hint":"Broken Pipe is completely in Base.",
+		"description":"By the end of the match, the broken pipe must be completely in base."
+	},
+	{
+		"guid":"d297dda0-611d-4f5f-b1eb-97f84d3d89c4",
+		"name":"FLOW",
+		"picture":"Flow.png",
+		"controlType":"checkbox",
+		"score":"25",
+		"max":"25",
+		"hint":"Big Water is on other team’s Field only by turning the Pump System’s valve(s).",
+		"description":"Move a big water (one time maximum) to the other team’s field only by turning the pump system’s valve(s). Only one big water is allowed to be placed on the other team’s field."
+	},
+	{
+		"guid":"7db6e94c-3de7-47f9-a853-09e202357a03",
+		"name":"PUMP ADDITION",
+		"picture":"PumpAddition.png",
+		"controlType":"checkbox",
+		"score":"20",
+		"max":"20",
+		"hint":"Pump Addition has contact with the mat, completely inside the target area.",
+		"description":"Move the pump addition so it has contact with the mat and that contact is completely in the pump addition target."
+	},
+	{
+		"guid":"36411c54-fb6f-4bb5-944a-1caca16416f9",
+		"name":"RAIN",
+		"picture":"Rain.png",
+		"controlType":"checkbox",
+		"score":"20",
+		"max":"20",
+		"hint":"At least one Rain is out of the Rain Cloud.",
+		"description":"Make at least one rain come out of the rain cloud."
+	},
+	{
+		"guid":"9145de70-2d6a-4ccd-b580-0b7b1dfe34fe",
+		"name":"FILTER",
+		"picture":"Filter.png",
+		"controlType":"checkbox",
+		"score":"30",
+		"max":"30",
+		"hint":"Lock latch is in dropped position.",
+		"description":"Move the filter north until the lock latch drops."
+	},
+	{
+		"guid":"1054a9f3-f5ba-43ef-99c8-844b10deb8e5",
+		"name":"WATER TREATMENT",
+		"picture":"WaterTreatment.png",
+		"controlType":"checkbox",
+		"score":"20",
+		"max":"20",
+		"hint":"Big Water is ejected from Water Treatment model, only by moving the toilet’s lever.",
+		"description":"Make the water treatment model eject its big water, only by moving the toilet’s lever. By the end of the match the water treatment model must have ejected a big water. The water treatment model ejects its big water, only by moving the toilet lever."
+	},
+	{
+		"guid":"35625e20-260a-46c9-997e-29df7f94b578",
+		"name":"FOUNTAIN",
+		"picture":"Fountain.png",
+		"controlType":"checkbox",
+		"score":"20",
+		"max":"20",
+		"hint":"Middle layer is raised due only to a Big Water in gray tub.",
+		"description":"Make the fountain’s middle layer rise some obvious height and stay there, due only to a big water in the gray tub. The fountain’s middle layer rises some obvious height and stays there."
+	},
+	{
+		"guid":"39651992-686c-4c32-99be-bf3538f0fd62",
+		"name":"MANHOLE COVERS",
+		"picture":"ManholeCovers.png",
+		"controlType":"radio",
+		"score": [
+			{"name":"none", "value": "0"},
+			{"name":"one", "value": "15"},
+			{"name":"both", "value": "30"}
+		],
+		"max":"30",
+		"hint":"Manhole Cover(s) are flipped over past vertical and never reached Base.",
+		"description":"Flip manhole cover(s) over, obviously past vertical without it/them ever reaching base."
+	},
+	{
+		"guid":"ce137036-c954-4049-ba85-5627d9b52e7b",
+		"name":"MANHOLE COVER BONUS",
+		"picture":"placeholder.jpg",
+		"controlType":"checkbox",
+		"score":"30",
+		"max":"30",
+		"hint":"Both Manhole Covers are flipped over, and completely in separate Tripod target. ",
+		"description":"Score manhole cover points as described above with both covers completely in its targets (the two big circles). For Bonus both covers must be completely in separate tripod targets."
+	},
+	{
+		"guid":"33d97ccd-c17f-4f98-a8a4-6c74cc7fbb26",
+		"name":"TRIPOD",
+		"picture":"Tripod.png",
+		"controlType":"radio",
+		"score": [
+			{"name":"none", "value": "0"},
+			{"name":"one", "value": "15"},
+			{"name":"both", "value": "20"}
+		],
+		"max":"20",
+		"hint":"Move the inspection camera tripod.",
+		"description":"Move the inspection camera tripod. OPTION 1. The camera tripod is partly in either tripod target, with all of its feet touching the mat for 15 pts, or OPTION 2. The camera tripod is completely in either tripod target, with all of its feet touching the mat for 20 pts."
+	},
+	{
+		"guid":"96d18eff-b285-42ad-ae9f-8c6a2d45f6e0",
+		"name":"PIPE REPLACEMENT",
+		"picture":"PipeReplacement.png",
+		"controlType":"checkbox",
+		"score":"20",
+		"max":"20",
+		"hint":"New Pipe is installed where Broken Pipe was.",
+		"description":"Replace the broken yellow pipe by a new blue pipe."
+	},
+	{
+		"guid":"470401f4-9ba3-482b-8730-07b1483feb8d",
+		"name":"PIPE CONSTRUCTION",
+		"picture":"PipeConstruction.png",
+		"controlType":"radio",
+		"score": [
+			{"name":"none", "value": "0"},
+			{"name":"one", "value": "15"},
+			{"name":"both", "value": "20"}
+		],
+		"max":"20",
+		"hint":"Move a new pipe.",
+		"description":"Move a new pipe. OPTION 1. Move a new pipe so it is partly in its target, in full/flat contact (see Fig. 6 in M10) with the mat for 15 pts, or OPTION 2. Move a new pipe so it is completely in its target, in full/flat contact with the mat for 20 pts."
+	},
+	{
+		"guid":"44a6a09e-4629-4309-938b-a42084ee47f7",
+		"name":"SLUDGE",
+		"picture":"Sludge.png",
+		"controlType":"checkbox",
+		"score":"30",
+		"max":"30",
+		"hint":"Sludge touching visible wood of a drawn garden box.",
+		"description":"Move the sludge so it is touching the visible wood of any of the six garden boxes. The Sludge touches the visible wood of any of the six garden boxes."
+	},
+	{
+		"guid":"8796a883-b47f-4eef-bf4e-c35a33e95d5e",
+		"name":"FLOWER",
+		"picture":"Flower.png",
+		"controlType":"checkbox",
+		"score":"30",
+		"max":"30",
+		"hint":"Flower is raised.",
+		"description":"Make the Flower rise some obvious height and stay there, due only to a big water in the brown pot."
+	},
+	{
+		"guid":"40a6c4e0-3c03-4eaa-ae3c-b4db46edb202",
+		"name":"FLOWER BONUS",
+		"picture":"placeholder.jpg",
+		"controlType":"checkbox",
+		"score":"30",
+		"max":"30",
+		"hint":"Score flower points with at least one rain in the purple part, touching nothing but the flower model.",
+		"description":"Score flower points with at least one rain in the purple part, touching nothing but the flower model."
+	},
+	{
+		"guid":"919f970f-9c56-44df-bd14-3cebbad0f03f",
+		"name":"WATER WELL",
+		"picture":"WaterWell.png",
+		"controlType":"radio",
+		"score": [
+			{"name":"none", "value": "0"},
+			{"name":"one", "value": "15"},
+			{"name":"both", "value": "25"}
+		],
+		"max":"25",
+		"hint":"Water Well contacting mat.",
+		"description":"Move the water well so it has contact with the mat in it’s target. OPTION 1. The water well is moved so it has contact with the mat and that contact is partly in the water well target for 15 pts, or OPTION 2. The water well is moved so it has contact with the mat and that contact is com-pletely in the water well target for 25 pts."
+	},
+	{
+		"guid":"70fedcb7-1340-4353-b280-4f16052b5ba4",
+		"name":"FIRE",
+		"picture":"Fire.png",
+		"controlType":"checkbox",
+		"score":"25",
+		"max":"25",
+		"hint":"Fire is dropped due only to Firetruck applying direct force to House’s lever.",
+		"description":"Make the fire drop only by making the firetruck apply direct force to the house’s yellow lever."
+	},
+	{
+		"guid":"8bd45fb4-3d73-401b-8c0d-591db65d8b2a",
+		"name":"WATER COLLECTION",
+		"picture":"WaterCollection.png",
+		"controlType":"radio",
+		"score": [
+			{"name":"none", "value": "0"},
+			{"name":"one", "value": "10"},
+			{"name":"both", "value": "20"}
+			{"name":"both", "value": "20"}
+		],
+		"max":"20",
+		"hint":"Move or catch big water and/or rain water (one rain maximum; no dirty water) so it is touching the mat in the water target.",
+		"description":"Move or catch big water and/or rain water (one rain maximum; no dirty water) so it is touching the mat in the water target. The target may be moved. But the target mustn’t ever reach or cross the white off-limits line (the line also passes through under the ramp). Every water may be touching the target, and/or other water, but anything else. Each water model is scored as an individual. OPTION 1. At least one rain is in the target and touches the mat for 10 pts. OPTION 2. One or several big water(s) lie(s) in the target and touches the mat in it for 10 pts each."
+	},
+	{
+		"guid":"18243fcb-c1b3-4681-bae2-9c5f5ba08426",
+		"name":"WATER COLLECTION BONUS",
+		"picture":"placeholder.jpg",
+		"controlType":"checkbox",
+		"score":"30",
+		"max":"30",
+		"hint":"Score at least one big water in its target with one on top, which is touching nothing but other water.",
+		"description":"Score at least one big water in its target with one on top, which is touching nothing but other water."
+	},
+	{
+		"guid":"8d2fb396-66fb-47b5-8e95-848d17515389",
+		"name":"SLINGSHOT",
+		"picture":"Slingshot.png",
+		"controlType":"checkbox",
+		"score":"20",
+		"max":"20",
+		"hint":"Slingshot is completely in the Slingshot target.",
+		"description":"N/A"
+	},
+	{
+		"guid":"d852198c-a97a-4e0a-a407-16af1b2a03a3",
+		"name":"SLINGSHOT BONUS",
+		"picture":"placeholder.jpg",
+		"controlType":"checkbox",
+		"score":"15",
+		"max":"15",
+		"hint":"Score slingshot points with the dirty water and a rain com-pletely in the slingshot target.",
+		"description":"Score slingshot points with the dirty water and a rain com-pletely in the slingshot target."
+	},
+	{
+		"guid":"e0474889-c687-4291-9112-7ef9431f3657",
+		"name":"FAUCET",
+		"picture":"Faucet.png",
+		"controlType":"checkbox",
+		"score":"25",
+		"max":"25",
+		"hint":"Water level is more blue than white",
+		"description":"Make the water level obviously more blue than white as seen from above the cup, only by turning the yellow faucet handle."
+	},
+	{
+		"guid":"8df8b7d1-deef-40b4-9231-b81defd0da18",
+		"name":"PENALTIES",
+		"picture":"Penalties.png",
+		"controlType":"combo",
+		"score":"-5,-10,-15,-20,-25,-30",
+		"score": [
+			{"name":"none", "value": "0"},
+			{"name":"one", "value": "-5"},
+			{"name":"two", "value": "-10"},
+			{"name":"three", "value": "-15"},
+			{"name":"four", "value": "-20"},
+			{"name":"five", "value": "-25"}
+			{"name":"six", "value": "-30"}
+			],
+
+		"max":"0",
+		"hint":"Penalty discs in the white triangle area.",
+		"description":"In the event of application of rule R14, the referee places one of the removed samples in the white triangle, in the southeast, as a permanent/untouchable interruption penalty. You can get up to 6 such penalties."
+	}
+]
