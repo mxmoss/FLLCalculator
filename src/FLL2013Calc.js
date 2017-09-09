@@ -1,7 +1,9 @@
-//FLL 2013 Nature's Fury Challenge Calculator
-//Load the info from a JSON file
+//FLL Robot Game Challenge score Calculator
 import React, {Component} from 'react';
-import challenges from './FLL2013Challenge.json';
+
+//Load the game challenges from a JSON file
+import challenges from './FLL2017Challenge.json';
+//import challenges from './FLL2013Challenge.json';
 
 function CurrentScore(props){
 const aScore = "Current Score: "+props.curScore+" points";
@@ -19,7 +21,7 @@ function NavBar(props){
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <a className="navbar-brand" href="#">Nature&apos;s Fury</a>
+          <a className="navbar-brand" href="#">Hydro-Dynamics</a>
           <CurrentScore curScore={props.curScore} />
         </div>
         <div id="navbar" className="collapse navbar-collapse">
@@ -39,7 +41,7 @@ function Header(props){
   return(
     <div className="jumbotron">
       <h1>{props.title}</h1>
-      <p>Calculator for the 2013 FLL Robot Challenge.</p>
+      <p>Robot Game score Calculator.</p>
     </div>
   )
 }
@@ -106,7 +108,7 @@ function ChallengeItem(props) {
   const expanded = (expandedItems.indexOf(challenge.name) > -1);
   return(
     <div className="col-xs-6 col-lg-4">
-      <img className="image" src={"icons/2013/" + challenge.picture} alt={challenge.name}  style={{ width: '80px', height: '80px' }} />
+      <img className="image" src={"icons/2017/" + challenge.picture} alt={challenge.name}  style={{ width: '80px', height: '80px' }} />
       <h3>{challenge.name}</h3>
       <h4>Max {challenge.max} pts</h4>
 
@@ -243,7 +245,7 @@ class FLL2013ChallengeCalc extends Component {
           <div className = "row row-offcanvas row-offcanvas-right">
             <NavBar curScore={this.state.curScore} />
             <div className="col-xs-12 col-sm-9">
-              <Header title="Nature&apos;s Fury" />
+              <Header title="Hydro-Dynamics" />
               <ChallengeList
                      challenges={this.state.stateChallenges}
                      expandedItems={this.state.expandedItems}
