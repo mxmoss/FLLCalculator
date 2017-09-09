@@ -194,7 +194,6 @@
 			{"name":"none", "value": "0"},
 			{"name":"one", "value": "10"},
 			{"name":"both", "value": "20"}
-			{"name":"both", "value": "20"}
 		],
 		"max":"20",
 		"hint":"Move or catch big water and/or rain water (one rain maximum; no dirty water) so it is touching the mat in the water target.",
@@ -245,17 +244,15 @@
 		"name":"PENALTIES",
 		"picture":"Penalties.png",
 		"controlType":"combo",
-		"score":"-5,-10,-15,-20,-25,-30",
 		"score": [
 			{"name":"none", "value": "0"},
 			{"name":"one", "value": "-5"},
 			{"name":"two", "value": "-10"},
 			{"name":"three", "value": "-15"},
 			{"name":"four", "value": "-20"},
-			{"name":"five", "value": "-25"}
+			{"name":"five", "value": "-25"},
 			{"name":"six", "value": "-30"}
 			],
-
 		"max":"0",
 		"hint":"Penalty discs in the white triangle area.",
 		"description":"In the event of application of rule R14, the referee places one of the removed samples in the white triangle, in the southeast, as a permanent/untouchable interruption penalty. You can get up to 6 such penalties."
