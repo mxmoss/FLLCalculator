@@ -150,7 +150,7 @@ function ChallengeList(props) {
   );
 }
 
-class FLL2013ChallengeCalc extends Component {
+class FLLChallengeCalc extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -259,4 +259,4 @@ class FLL2013ChallengeCalc extends Component {
   }
 }
 
-export default FLL2013ChallengeCalc;
+export default FLLChallengeCalc;
