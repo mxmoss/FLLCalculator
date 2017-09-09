@@ -86,13 +86,6 @@ function ARadioGroup(props){
   )
 }
 
-// <div>
-//   <button onClick={this.toggleHidden.bind(this)} >
-//     Click to show modal
-//   </button>
-//   {!this.state.isHidden && <Child />}
-// </div>
-
 function Description(props){
   const {challenge, expanded} = props;
   return(
@@ -113,7 +106,7 @@ function ChallengeItem(props) {
   const expanded = (expandedItems.indexOf(challenge.name) > -1);
   return(
     <div className="col-xs-6 col-lg-4">
-      <img className="image" src={"icons/" + challenge.picture} alt={challenge.name}  style={{ width: '80px', height: '80px' }} />
+      <img className="image" src={"icons/2013/" + challenge.picture} alt={challenge.name}  style={{ width: '80px', height: '80px' }} />
       <h3>{challenge.name}</h3>
       <h4>Max {challenge.max} pts</h4>
 
