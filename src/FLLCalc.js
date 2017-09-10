@@ -1,5 +1,6 @@
 //FLL Robot Game Challenge score Calculator
 import React, {Component} from 'react';
+import Ad from './GoogleAd';
 
 //Load the game challenges from a JSON file
 import challenges from './FLL2017Challenge.json';
@@ -252,6 +253,7 @@ class FLLChallengeCalc extends Component {
                      handleChange={this.handleChange}
                      handleClick={this.handleClick} />
             </div>
+            // <Ad />
           </div>
         </div>
       </div>
