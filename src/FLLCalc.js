@@ -1,6 +1,7 @@
 //FLL Robot Game Challenge score Calculator
 import React, {Component} from 'react';
 import Ad from './GoogleAd';
+import ReactGA from 'react-ga';
 
 //Load the game challenges from a JSON file
 import challenges from './FLL2017Challenge.json';
@@ -162,6 +163,11 @@ class FLLChallengeCalc extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+
+    // Add tracking ID created from https://analytics.google.com/analytics/web/#home/
+    ReactGA.initialize('UA-2578834-13');
+    // This just needs to be called once since we have no routes in this case.
+    ReactGA.pageview(window.location.pathname);
   }
 
   componentDidMount(){
@@ -253,7 +259,7 @@ class FLLChallengeCalc extends Component {
                      handleChange={this.handleChange}
                      handleClick={this.handleClick} />
             </div>
-            // <Ad />
+            <Ad />
           </div>
         </div>
       </div>
