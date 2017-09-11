@@ -90,17 +90,28 @@ function ARadioGroup(props){
   )
 }
 
+
 function Description(props){
+  //Show full or partial description of the challenge
   const {challenge, expanded} = props;
   return(
     <div>
-    <p>Mission: {challenge.hint}
-      <button name="btnToggle" value={ expanded ? false : true } id={challenge.name} onClick={props.onClick} >
-        Toggle
-      </button>
-    </p>
-    <p>{ expanded  ?  challenge.description: null}
-    </p>
+      <p>Mission: {challenge.hint}
+        <button className="btn btn-primary"
+                value={ expanded ? false : true }
+                id={challenge.name}
+                style={{ width: '90px', height: '20px', margin:'1', border:'1', padding:'1', }}
+                onClick={props.onClick} >
+        {expanded ? (
+          "Show less"
+          ) : (
+          "Show more"
+          )
+        }
+        </button>
+      </p>
+      { expanded  ?  challenge.description: null}
+      <p/>
     </div>
   )
 }
@@ -206,6 +217,11 @@ class FLLChallengeCalc extends Component {
   handleClick(event) {
     const name = event.target.name;
     const target = event.target.id.toString();
+    console.log('ha '+event.target.value);
+    console.log('he '+name);
+    console.log('hi '+target);
+    console.log('hu ' +event.currentTarget.textContent);
+    console.log('hy %o',event.currentTarget);
 
     //track which challenges have the full description toggled on
     if (event.target.value === "true") {
