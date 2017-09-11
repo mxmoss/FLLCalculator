@@ -100,12 +100,12 @@ function Description(props){
         <button className="btn btn-primary"
                 value={ expanded ? false : true }
                 id={challenge.name}
-                style={{ width: '90px', height: '20px', margin:'1', border:'1', padding:'1', }}
+                style={{ width: '60px', height: '20px', margin:'3', border:'0', padding:'0', }}
                 onClick={props.onClick} >
         {expanded ? (
-          "Show less"
+          "<< Less"
           ) : (
-          "Show more"
+          "More >>"
           )
         }
         </button>
