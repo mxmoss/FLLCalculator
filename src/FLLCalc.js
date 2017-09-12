@@ -1,11 +1,15 @@
 //FLL Robot Game Challenge score Calculator
 import React, {Component} from 'react';
+import {BrowserRouter, Route, Link, NavLink, Switch } from 'react-router-dom';
 import Ad from './GoogleAd';
+import About from './about';
 import ReactGA from 'react-ga';
 
 //Load the game challenges from a JSON file
 import challenges from './FLL2017Challenge.json';
 //import challenges from './FLL2013Challenge.json';
+
+const linkStyle = {color: 'red' };
 
 function CurrentScore(props){
 const aScore = "Current Score: "+props.curScore+" points";
@@ -28,10 +32,9 @@ function NavBar(props){
         </div>
         <div id="navbar" className="collapse navbar-collapse">
           <ul className="nav navbar-nav">
-            <li className="active"><a href="#">Home</a></li>
-            <li><a href="#reset">Reset</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><Link to={'/'}>Home</Link></li>
+            <li><Link to={'/about'}>About</Link></li>
+            <li><Link to={'/reset'}>Reset</Link></li>
           </ul>
         </div>
       </div>
@@ -301,4 +304,19 @@ class FLLChallengeCalc extends Component {
   }
 }
 
-export default FLLChallengeCalc;
+const App = () => {
+  return(
+    <BrowserRouter>
+      <div>
+      <NavBar />
+       <Switch>
+         <Route exact path="/" component={FLLChallengeCalc} />
+         <Route path="/about" component={About} />
+         <Route render={() => <h1> Not found!</h1>} />
+       </Switch>
+      </div>
+    </BrowserRouter>
+  )
+}
+
+export default App;
