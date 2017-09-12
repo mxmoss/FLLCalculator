@@ -27,14 +27,14 @@ function NavBar(props){
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <a className="navbar-brand" href="#">Hydro-Dynamics</a>
+          <a className="navbar-brand" href="/fll2013challenge">Hydro-Dynamics</a>
           <CurrentScore curScore={props.curScore} />
         </div>
         <div id="navbar" className="collapse navbar-collapse">
           <ul className="nav navbar-nav">
-            <li><Link to={'/'}>Home</Link></li>
+            <li><Link to={'/fll2013challenge'}>Home</Link></li>
             <li><Link to={'/about'}>About</Link></li>
-            <li><Link to={'/reset'}>Reset</Link></li>
+            <li><Link to={'/fll2013challenge'}>Reset</Link></li>
           </ul>
         </div>
       </div>
@@ -311,6 +311,7 @@ const App = () => {
       <NavBar />
        <Switch>
          <Route exact path="/" component={FLLChallengeCalc} />
+         <Route exact path="/fll2013challenge/" component={FLLChallengeCalc} />
          <Route path="/about" component={About} />
          <Route render={() => <h1> Not found!</h1>} />
        </Switch>
