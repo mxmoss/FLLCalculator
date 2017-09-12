@@ -51,7 +51,12 @@ function Header(props){
 function ACheckbox(props){
   const {name, id, handleChange} = props;
   return(
-    <input type="checkbox" name={name} id={id} key={id.toString()} onChange={handleChange}/>
+    <input type="checkbox"
+          name={name}
+          id={id}
+          key={id.toString()}
+          style={{width: '20px', height: '20px'}}
+          onChange={handleChange}/>
   )
 }
 
@@ -63,6 +68,7 @@ function AComboBox(props){
         <option
           value={aScore.value}
           key={id +"-"+ aScore.name}
+          style={{height: '20px'}}
         >{aScore.name}</option>
       )}
     </select>
@@ -81,6 +87,7 @@ function ARadioGroup(props){
               name={name}
               key={id +"-"+ aScore.value.toString()}
               value={aScore.value}
+              style={{height: '20px'}}
               onChange={handleChange}
           ></input>
           {aScore.name}
@@ -96,20 +103,21 @@ function Description(props){
   const {challenge, expanded} = props;
   return(
     <div>
-      <p>Mission: {challenge.hint}
-        <button className="btn btn-primary"
-                value={ expanded ? false : true }
-                id={challenge.name}
-                style={{ width: '60px', height: '20px', margin:'3', border:'0', padding:'0', }}
-                onClick={props.onClick} >
-        {expanded ? (
-          "<< Less"
-          ) : (
-          "More >>"
-          )
-        }
-        </button>
-      </p>
+      <button className="btn btn-primary"
+              value={ expanded ? false : true }
+              id={challenge.name}
+              style={{ width: '60px', height: '20px',
+                 margin:'3px', border:'0', padding:'0',
+                 float:'right'}}
+              onClick={props.onClick} >
+      {expanded ? (
+        "<< Less"
+        ) : (
+        "More >>"
+        )
+      }
+      </button>
+      <p>Mission: {challenge.hint}</p>
       { expanded  ?  challenge.description: null}
       <p/>
     </div>
@@ -119,36 +127,51 @@ function Description(props){
 function ChallengeItem(props) {
   const {challenge, expandedItems, handleChange, handleClick} = props;
   const expanded = (expandedItems.indexOf(challenge.name) > -1);
-  return(
-    <div className="col-xs-6 col-lg-4">
-      <img className="image" src={"icons/2017/" + challenge.picture} alt={challenge.name}  style={{ width: '80px', height: '80px' }} />
-      <h3>{challenge.name}</h3>
-      <h4>Max {challenge.max} pts</h4>
 
-      {(() => {
-        switch (challenge.controlType) {
-          case "checkbox":  return <ACheckbox score={challenge.score}
-                                              name={challenge.name}
-                                              id={challenge.guid}
-                                              handleChange = {handleChange} />;
-          case "radio":     return <ARadioGroup score={challenge.score}
-                                              name={challenge.name}
-                                              id={challenge.guid}
-                                              handleChange ={handleChange} />;
-          case "combo":     return <AComboBox score={challenge.score}
-                                              name={challenge.name}
-                                              id={challenge.guid}
-                                              handleChange ={handleChange} />;
-          default:  return '';
-        }
-      })()}
-      <Description challenge={challenge} expanded={expanded} onClick={handleClick}/>
+  const panelColor = 'white';
+  const headColor = 'white'; //#F0F8FF
+  const maxColor = 'white';
+  const ctrlColor = 'white';
+  const descColor ='white';
+
+  return(
+    <div className="col-xs-6 col-lg-4"
+      style={{ backgroundColor: panelColor, borderTop: '1px solid', borderBottomColor: 'LightGrey', padding: '7px'}}>
+      <img className="image" src={"icons/2017/" + challenge.picture} alt={challenge.name}
+        style={{ float:'left', top: '0', left: '0', width: '80px', height: '80px' }} />
+      <h4 style={{ textAlign: 'right', backgroundColor: headColor}}>{challenge.name}</h4>
+      <h5 style={{ backgroundColor: maxColor}}>Max {challenge.max} pts
+        <div style={{ backgroundColor: ctrlColor, float:'right'}}>
+          {(() => {
+            switch (challenge.controlType) {
+              case "checkbox":  return <ACheckbox score={challenge.score}
+                                                  name={challenge.name}
+                                                  id={challenge.guid}
+                                                  handleChange = {handleChange} />;
+              case "radio":     return <ARadioGroup score={challenge.score}
+                                                  name={challenge.name}
+                                                  id={challenge.guid}
+                                                  handleChange ={handleChange} />;
+              case "combo":     return <AComboBox score={challenge.score}
+                                                  name={challenge.name}
+                                                  id={challenge.guid}
+                                                  handleChange ={handleChange} />;
+              default:  return '';
+            }
+          })()}
+        </div>
+      </h5><br/>
+      <Description
+        challenge={challenge}
+        expanded={expanded}
+        style={{ backgroundColor: descColor}}
+        onClick={handleClick}/>
     </div>
   )
 }
 
 function ChallengeList(props) {
-  const {challenge, expandedItems, handleChange, handleClick} = props;
+  const {challenges, expandedItems, handleChange, handleClick} = props;
   return (
     <div className ="row">
       {challenges.map((challenge) =>
@@ -215,13 +238,7 @@ class FLLChallengeCalc extends Component {
   }
 
   handleClick(event) {
-    const name = event.target.name;
     const target = event.target.id.toString();
-    console.log('ha '+event.target.value);
-    console.log('he '+name);
-    console.log('hi '+target);
-    console.log('hu ' +event.currentTarget.textContent);
-    console.log('hy %o',event.currentTarget);
 
     //track which challenges have the full description toggled on
     if (event.target.value === "true") {
@@ -275,6 +292,7 @@ class FLLChallengeCalc extends Component {
                      handleChange={this.handleChange}
                      handleClick={this.handleClick} />
             </div>
+            <div>hi!</div>
             <Ad />
           </div>
         </div>
