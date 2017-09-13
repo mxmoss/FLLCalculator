@@ -12,29 +12,29 @@ import challenges from './FLL2017Challenge.json';
 const linkStyle = {color: 'red' };
 
 function CurrentScore(props){
-const aScore = "Current Score: "+props.curScore+" points";
-  return <div className="navbar-brand" >{aScore}</div>
+const aScore = "Score: "+props.curScore+" pts";
+  return <p className="navbar-text">{aScore}</p>
 }
 
 function NavBar(props){
   return(
-    <nav className="navbar navbar-fixed-top navbar-inverse">
-      <div className="container">
+    <nav className="navbar navbar-inverse navbar-fixed-top">
+      <div className="container-fluid">
         <div className="navbar-header">
-          <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <a className="navbar-brand" href="/fll2013challenge">Hydro-Dynamics</a>
+          <CurrentScore curScore={props.curScore} />
+          <button className="btn navbar-btn">Reset</button>
+          <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavBar" aria-expanded="false" aria-controls="navbar">
             <span className="sr-only">Toggle navigation</span>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <a className="navbar-brand" href="/fll2013challenge">Hydro-Dynamics</a>
-          <CurrentScore curScore={props.curScore} />
         </div>
-        <div id="navbar" className="collapse navbar-collapse">
-          <ul className="nav navbar-nav">
-            <li><Link to={'/fll2013challenge'}>Home</Link></li>
+        <div className="collapse navbar-collapse" id="myNavBar">
+          <ul className="nav navbar-nav navbar-right">
+            <li className="active"><Link to={'/fll2013challenge'}>Home</Link></li>
             <li><Link to={'/about'}>About</Link></li>
-            <li><Link to={'/fll2013challenge'}>Reset</Link></li>
           </ul>
         </div>
       </div>
@@ -308,7 +308,7 @@ const App = () => {
   return(
     <BrowserRouter>
       <div>
-      <NavBar />
+      <NavBar curScore={0} />
        <Switch>
          <Route exact path="/" component={FLLChallengeCalc} />
          <Route exact path="/fll2013challenge/" component={FLLChallengeCalc} />
