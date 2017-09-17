@@ -141,7 +141,7 @@ function ChallengeItem(props) {
     <div className="col-xs-6 col-lg-4"
       style={{ backgroundColor: panelColor, borderTop: '1px solid', borderBottomColor: 'LightGrey', padding: '7px'}}>
       <img className="image" src={"icons/2017/" + challenge.picture} alt={challenge.name}
-        style={{ float:'left', top: '0', left: '0', width: '80px', height: '80px' }} />
+        style={{ float:'left', top: '0', left: '0', width: '70px', height: '70px' }} />
       <h5 style={{ textAlign: 'right', backgroundColor: headColor}}>{challenge.name}</h5>
       <h5 style={{ backgroundColor: maxColor}}>Max {challenge.max} pts
         <div style={{ backgroundColor: ctrlColor, float:'right'}}>
