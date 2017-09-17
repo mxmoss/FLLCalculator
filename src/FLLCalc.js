@@ -1,6 +1,6 @@
 //FLL Robot Game Challenge score Calculator
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+import {BrowserRouter, Route, Link, NavLink, Switch } from 'react-router-dom';
 import Ad from './GoogleAd';
 import About from './about';
 import ReactGA from 'react-ga';
@@ -32,8 +32,8 @@ function NavBar(props){
         </div>
         <div className="collapse navbar-collapse" id="myNavBar">
           <ul className="nav navbar-nav navbar-right">
-            <li className="active"><Link to={'/fll2013challenge'}>Home</Link></li>
-            <li><Link to={'/about'}>About</Link></li>
+            <li><NavLink to={'/fll2013challenge'}>Home</NavLink></li>
+            <li><NavLink to={'/about'}>About</NavLink></li>
           </ul>
         </div>
       </div>
