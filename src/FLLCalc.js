@@ -17,11 +17,12 @@ const aScore = "Score: "+props.curScore+" pts";
 }
 
 function NavBar(props){
+  const  Title = 'Hydro-Dynamics';
   return(
     <nav className="navbar navbar-inverse navbar-fixed-top">
       <div className="container-fluid">
         <div className="navbar-header">
-          <a className="navbar-brand" href="/fll2013challenge">Hydro-Dynamics</a>
+          <a className="navbar-brand" href="/fll2013challenge">{Title}</a>
           <CurrentScore curScore={props.curScore} />
           <button className="btn navbar-btn">Reset</button>
           <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavBar" aria-expanded="false" aria-controls="navbar">
@@ -42,11 +43,12 @@ function NavBar(props){
   )
 }
 
-function Header(props){
+function PageHeader(props){
+  const {Title, Description, aLink} = props;
   return(
     <div className="jumbotron">
-      <h1>{props.title}</h1>
-      <p>Robot Game score Calculator.</p>
+      <h1>{Title}</h1>
+      <p>{Description}  <Link to={aLink} target="_blank">More Info</Link></p>
     </div>
   )
 }
@@ -282,13 +284,18 @@ class FLLChallengeCalc extends Component {
   }
 
   render() {
+    const aTitle = 'Hydro-Dynamics';
+    const aDescription ="A calculator for the First Lego League (FLL) 2017/2018 HYDRO DYNAMICS robot game."
+    const aLink = '//www.firstinspires.org/robotics/fll/challenge-and-season-info';
     return (
       <div>
         <div className = "container">
           <div className = "row row-offcanvas row-offcanvas-right">
             <NavBar curScore={this.state.curScore} />
             <div className="col-xs-12 col-sm-9">
-              <Header title="Hydro-Dynamics" />
+              <PageHeader Title = {aTitle}
+                      Description = {aDescription}
+                      aLink = {aLink} />
               <ChallengeList
                      challenges={this.state.stateChallenges}
                      expandedItems={this.state.expandedItems}
@@ -308,7 +315,6 @@ const App = () => {
   return(
     <BrowserRouter>
       <div>
-      <NavBar curScore={0} />
        <Switch>
          <Route exact path="/" component={FLLChallengeCalc} />
          <Route exact path="/fll2013challenge/" component={FLLChallengeCalc} />
