@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
-import {BrowserRouter, Route, Link, NavLink, Switch } from 'react-router-dom';
-
+import React from 'react';
+import {Link } from 'react-router-dom';
 
 function NavBar(props){
   return(
@@ -50,8 +49,8 @@ const About = () => (
   <input type="hidden" name="currency_code" value="USD"></input>
   <input type="hidden" name="no_note" value="0"></input>
   <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest"></input>
-  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></input>
-  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></img>
+  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!"></input>
+  <img alt="" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"></img>
   </form>
   </div>
 )

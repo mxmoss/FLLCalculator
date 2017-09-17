@@ -1,6 +1,6 @@
 //FLL Robot Game Challenge score Calculator
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Link, NavLink, Switch } from 'react-router-dom';
+import {BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import Ad from './GoogleAd';
 import About from './about';
 import ReactGA from 'react-ga';
@@ -8,8 +8,6 @@ import ReactGA from 'react-ga';
 //Load the game challenges from a JSON file
 import challenges from './FLL2017Challenge.json';
 //import challenges from './FLL2013Challenge.json';
-
-const linkStyle = {color: 'red' };
 
 function CurrentScore(props){
 const aScore = "Score: "+props.curScore+" pts";
