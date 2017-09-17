@@ -11,3 +11,8 @@ Other goals for this project were to
 1.  Separate the data from the challenges so the calculator can be easily updated each new FLL season
 1.  Learn more about Bootstrap formatting
 1.  Better understand React forms
+
+# Disclaimer
+This calculator is in no way associated with First Lego League (FLL) or the Lego company and is not meant as a definitive authority for the robot challenge.
+Portions of copyrighted materials are used for educational purposes under fair use laws.
+Participants in FLL should refer to the FLL Rules and website for any questions about scoring the robot game.
