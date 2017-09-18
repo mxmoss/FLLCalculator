@@ -11,7 +11,7 @@ import challenges from './FLL2017Challenge.json';
 
 function CurrentScore(props){
 const aScore = "Score: "+props.curScore+" pts";
-  return <p className="navbar-text">{aScore}</p>
+  return <text className="navbar-text" style={{textAlignVertical: "center", textAlign: "center", padding:'3px', margin:'3px',  marginTop:'10px', border:'3px'}}>{aScore}</text>
 }
 
 function NavBar(props){
@@ -22,7 +22,7 @@ function NavBar(props){
         <div className="navbar-header">
           <a className="navbar-brand" href="/fll2013challenge">{Title}</a>
           <CurrentScore curScore={props.curScore} />
-          <button className="btn navbar-btn">Reset</button>
+          <button className="btn navbar-btn" style={{width: '45px', padding:'3px', margin:'0px',  marginTop:'10px', border:'1px'}}>Reset</button>
           <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavBar" aria-expanded="false" aria-controls="navbar">
             <span className="sr-only">Toggle navigation</span>
             <span className="icon-bar"></span>
@@ -286,23 +286,21 @@ class FLLChallengeCalc extends Component {
     const aDescription ="A calculator for the First Lego League (FLL) 2017/2018 HYDRO DYNAMICS robot game."
     const aLink = '//www.firstinspires.org/robotics/fll/challenge-and-season-info';
     return (
-      <div>
-        <div className = "container">
-          <div className = "row row-offcanvas row-offcanvas-right">
-            <NavBar curScore={this.state.curScore} />
-            <div className="col-xs-12 col-sm-9">
-              <PageHeader Title = {aTitle}
-                      Description = {aDescription}
-                      aLink = {aLink} />
-              <ChallengeList
-                     challenges={this.state.stateChallenges}
-                     expandedItems={this.state.expandedItems}
-                     handleChange={this.handleChange}
-                     handleClick={this.handleClick} />
-            </div>
-            <div>hi!</div>
-            <Ad />
+      <div className = "container">
+        <NavBar curScore={this.state.curScore} />
+        <PageHeader Title = {aTitle}
+                Description = {aDescription}
+                aLink = {aLink} />
+        <div className = "row row-offcanvas row-offcanvas-right">
+          <div className="col-xs-12 col-sm-9">
+            <ChallengeList
+                   challenges={this.state.stateChallenges}
+                   expandedItems={this.state.expandedItems}
+                   handleChange={this.handleChange}
+                   handleClick={this.handleClick} />
           </div>
+          <div>hi!</div>
+          <Ad />
         </div>
       </div>
     )
