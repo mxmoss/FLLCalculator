@@ -21,10 +21,10 @@ function NavBar(props){
     <nav className="navbar navbar-inverse navbar-fixed-top">
       <div className="container-fluid">
         <div className="navbar-header">
-          <a className="navbar-brand" href="/fll2013challenge">{Title}</a>
+          <a className="navbar-brand" href="/FLLCalculator">{Title}</a>
           <CurrentScore curScore={props.curScore} />
           <button className="btn navbar-btn" style={{width: '45px', padding:'3px', margin:'0px',  marginTop:'10px', border:'1px'}}>Reset</button>&nbsp;&nbsp;
-          <a className="navbar-nav navbar-right" href={'/about'} style={{padding:'7px', margin:'7px',  marginTop:'7px', border:'7px'}}>About</a>
+          <a className="navbar-nav navbar-right" href={'/FLLCalculator/about'} style={{padding:'7px', margin:'7px',  marginTop:'7px', border:'7px'}}>About</a>
         </div>
       </div>
     </nav>
