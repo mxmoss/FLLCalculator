@@ -14,6 +14,7 @@ const aScore = "Score: "+props.curScore+" pts";
   return <text className="navbar-text" style={{textAlignVertical: "center", textAlign: "center", padding:'3px', margin:'3px',  marginTop:'10px', border:'3px'}}>{aScore}</text>
 }
 
+//Navigation bar
 function NavBar(props){
   const  Title = 'Hydro-Dynamics';
   return(
@@ -22,25 +23,15 @@ function NavBar(props){
         <div className="navbar-header">
           <a className="navbar-brand" href="/fll2013challenge">{Title}</a>
           <CurrentScore curScore={props.curScore} />
-          <button className="btn navbar-btn" style={{width: '45px', padding:'3px', margin:'0px',  marginTop:'10px', border:'1px'}}>Reset</button>
-          <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavBar" aria-expanded="false" aria-controls="navbar">
-            <span className="sr-only">Toggle navigation</span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-          </button>
-        </div>
-        <div className="collapse navbar-collapse" id="myNavBar">
-          <ul className="nav navbar-nav navbar-right">
-            <li><NavLink to={'/fll2013challenge'}>Home</NavLink></li>
-            <li><NavLink to={'/about'}>About</NavLink></li>
-          </ul>
+          <button className="btn navbar-btn" style={{width: '45px', padding:'3px', margin:'0px',  marginTop:'10px', border:'1px'}}>Reset</button>&nbsp;&nbsp;
+          <a className="navbar-nav navbar-right" href={'/about'} style={{padding:'7px', margin:'7px',  marginTop:'7px', border:'7px'}}>About</a>
         </div>
       </div>
     </nav>
   )
 }
 
+//Page header
 function PageHeader(props){
   const {Title, Description, aLink} = props;
   return(
@@ -100,7 +91,6 @@ function ARadioGroup(props){
   )
 }
 
-
 function Description(props){
   //Show full or partial description of the challenge
   const {challenge, expanded} = props;
@@ -127,6 +117,7 @@ function Description(props){
   )
 }
 
+//Display a single challenge item
 function ChallengeItem(props) {
   const {challenge, expandedItems, handleChange, handleClick} = props;
   const expanded = (expandedItems.indexOf(challenge.name) > -1);
@@ -173,6 +164,7 @@ function ChallengeItem(props) {
   )
 }
 
+//create the list of challenges
 function ChallengeList(props) {
   const {challenges, expandedItems, handleChange, handleClick} = props;
   return (

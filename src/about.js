@@ -7,18 +7,6 @@ function NavBar(props){
       <div className="container-fluid">
         <div className="navbar-header">
           <a className="navbar-brand" href="/fll2013challenge">Hydro-Dynamics</a>
-          <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavBar" aria-expanded="false" aria-controls="navbar">
-            <span className="sr-only">Toggle navigation</span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-          </button>
-        </div>
-        <div className="collapse navbar-collapse" id="myNavBar">
-          <ul className="nav navbar-nav navbar-right">
-            <li><NavLink to={'/fll2013challenge'}>Home</NavLink></li>
-            <li><NavLink to={'/about'}>About</NavLink></li>
-          </ul>
         </div>
       </div>
     </nav>
