@@ -6,7 +6,7 @@ function NavBar(props){
     <nav className="navbar navbar-inverse navbar-fixed-top">
       <div className="container-fluid">
         <div className="navbar-header">
-          <a className="navbar-brand" href="/fll2013challenge">Hydro-Dynamics</a>
+          <a className="navbar-brand" href="/FLLCalculator">Hydro-Dynamics</a>
         </div>
       </div>
     </nav>
@@ -21,9 +21,9 @@ const About = () => (
   <h1>About!</h1>
   Written in React<p/>
 
-  Available on <a href="https://github.com/mxmoss/fll2013challenge">GitHub</a><br/>
+  Available on <a href="https://github.com/mxmoss/FLLCalculator">GitHub</a><br/>
 
-  Please <a href="https://github.com/mxmoss/fll2013challenge/issues">report any issues</a> you discover <br/>
+  Please <a href="https://github.com/mxmoss/FLLCalculator/issues">report any issues</a> you discover <br/>
 
   Follow <a href="https://twitter.com/mxmoss">me on twitter </a><br/>
 

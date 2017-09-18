@@ -304,8 +304,9 @@ const App = () => {
     <BrowserRouter>
       <Switch>
          <Route exact path="/" component={FLLChallengeCalc} />
-         <Route exact path="/fll2013challenge/" component={FLLChallengeCalc} />
+         <Route exact path="/FLLCalculator/" component={FLLChallengeCalc} />
          <Route path="/about" component={About} />
+         <Route path="/FLLCalculator/about" component={About} />
          <Route render={() => <h1> Not found!</h1>} />
       </Switch>
     </BrowserRouter>
