@@ -1,4 +1,4 @@
-# fll2013challenge
+# FLLCalculator
 
 # About
 From the [FLL site](http://www.firstlegoleague.org/challenge):

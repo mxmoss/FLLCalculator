@@ -1,11 +1,11 @@
 {
-  "name": "fll2013challenge",
+  "name": "FLLCalculator",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mxmoss.github.io/fll2013challenge/",
+  "homepage": "https://mxmoss.github.io/FLLCalculator/",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mxmoss/fll2013challenge.git"
+    "url": "git://github.com/mxmoss/FLLCalculator.git"
   },
   "author": "Moss Drake <mxmossman@gmail.com>",
   "dependencies": {
