@@ -86,7 +86,7 @@
 	{
 		"guid":"ce137036-c954-4049-ba85-5627d9b52e7b",
 		"name":"MANHOLE COVER BONUS",
-		"picture":"placeholder.jpg",
+		"picture":"Placeholder.jpg",
 		"controlType":"checkbox",
 		"score":"30",
 		"max":"30",
@@ -154,7 +154,7 @@
 	{
 		"guid":"40a6c4e0-3c03-4eaa-ae3c-b4db46edb202",
 		"name":"FLOWER BONUS",
-		"picture":"placeholder.jpg",
+		"picture":"Placeholder.jpg",
 		"controlType":"checkbox",
 		"score":"30",
 		"max":"30",
@@ -202,7 +202,7 @@
 	{
 		"guid":"18243fcb-c1b3-4681-bae2-9c5f5ba08426",
 		"name":"WATER COLLECTION BONUS",
-		"picture":"placeholder.jpg",
+		"picture":"Placeholder.jpg",
 		"controlType":"checkbox",
 		"score":"30",
 		"max":"30",
@@ -222,7 +222,7 @@
 	{
 		"guid":"d852198c-a97a-4e0a-a407-16af1b2a03a3",
 		"name":"SLINGSHOT BONUS",
-		"picture":"placeholder.jpg",
+		"picture":"Placeholder.jpg",
 		"controlType":"checkbox",
 		"score":"15",
 		"max":"15",
