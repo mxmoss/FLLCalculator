@@ -24,7 +24,7 @@ function NavBar(props){
           <a className="navbar-brand" href="/FLLCalculator">{Title}</a>
           <CurrentScore curScore={props.curScore} />
           <button className="btn navbar-btn" style={{width: '45px', padding:'3px', margin:'0px',  marginTop:'10px', border:'1px'}}>Reset</button>&nbsp;&nbsp;
-          <a className="navbar-nav navbar-right" href={'/FLLCalculator/about'} style={{padding:'7px', margin:'7px',  marginTop:'7px', border:'7px'}}>About</a>
+          <a className="navbar-nav navbar-right" href={'/about'} style={{padding:'7px', margin:'7px',  marginTop:'7px', border:'7px'}}>About</a>
         </div>
       </div>
     </nav>
@@ -303,11 +303,10 @@ const App = () => {
   return(
     <BrowserRouter>
       <Switch>
-         <Route exact path="/" component={FLLChallengeCalc} />
-         <Route exact path="/FLLCalculator/" component={FLLChallengeCalc} />
-         <Route path="/about" component={About} />
-         <Route path="/FLLCalculator/about" component={About} />
-         <Route render={() => <h1> Not found!</h1>} />
+        <Route path="/about" component={About} />
+        <Route path="/FLLCalculator" component={FLLChallengeCalc} />
+        <Route exact path="/" component={FLLChallengeCalc} />
+        <Route render={() => <h1> Not found!</h1>} />
       </Switch>
     </BrowserRouter>
   )
