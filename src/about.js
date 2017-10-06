@@ -6,7 +6,7 @@ function NavBar(props){
     <nav className="navbar navbar-inverse navbar-fixed-top">
       <div className="container-fluid">
         <div className="navbar-header">
-          <a className="navbar-brand" href="/FLLCalculator">Hydro-Dynamics</a>
+          <a className="navbar-brand" href="/">Hydro-Dynamics</a>
         </div>
       </div>
     </nav>
