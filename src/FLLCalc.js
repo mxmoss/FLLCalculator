@@ -16,7 +16,7 @@ const aScore = "Score: "+props.curScore+" pts";
 
 //Navigation bar
 function NavBar(props){
-  const  Title = 'Hydro-Dynamics';
+  const  Title = 'Hydr00-Dynamics';
   return(
     <nav className="navbar navbar-inverse navbar-fixed-top">
       <div className="container-fluid">
